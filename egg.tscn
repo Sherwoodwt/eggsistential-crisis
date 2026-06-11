@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://br8okg7f8r03d"]
+
+[ext_resource type="Texture2D" uid="uid://gverx1r5lsc0" path="res://egg.png" id="1_6upkn"]
+[ext_resource type="Script" uid="uid://diottfv4pl4b5" path="res://egg.gd" id="1_60cwx"]
+
+[node name="Egg" type="Control" unique_id=1634030217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60cwx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1476675264]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6upkn")
