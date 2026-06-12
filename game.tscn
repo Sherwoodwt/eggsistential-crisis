@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds60yn5kvgf3q" path="res://grab.gd" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://br8okg7f8r03d" path="res://egg.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://bb4qpj3lfdknw" path="res://grill.gd" id="3_feb5d"]
 
 [node name="Game" type="Control" unique_id=1792544149]
 layout_mode = 3
@@ -27,16 +28,6 @@ grow_vertical = 2
 script = ExtResource("1_80nbo")
 item_scene = ExtResource("2_e2o6t")
 
-[node name="Eggs" type="Button" parent="Panel" unique_id=1464640343]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Eggs"
-
 [node name="Grill" type="Panel" parent="." unique_id=662914279]
 layout_mode = 1
 anchors_preset = 8
@@ -50,6 +41,7 @@ offset_right = 463.0
 offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_feb5d")
 
 [node name="Window" type="Panel" parent="." unique_id=1492271176]
 layout_mode = 1
