@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gverx1r5lsc0"
-path="res://.godot/imported/egg.png-6d6c0df5f9db34b50c91b68c0aab99dd.ctex"
+path="res://.godot/imported/egg.png-c05838a06256eedb25dc38096566ff52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://egg.png"
-dest_files=["res://.godot/imported/egg.png-6d6c0df5f9db34b50c91b68c0aab99dd.ctex"]
+source_file="res://sprites/egg.png"
+dest_files=["res://.godot/imported/egg.png-c05838a06256eedb25dc38096566ff52.ctex"]
 
 [params]
 

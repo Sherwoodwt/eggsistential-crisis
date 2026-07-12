@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bg10admtciej8"]
+
+[ext_resource type="PackedScene" uid="uid://di5ujrudev4ja" path="res://scenes/stove_section.tscn" id="1_bocw4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
+
+[node name="Stove" type="Node2D" unique_id=2106285633]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1853354067]
+modulate = Color(0.37413925, 0.37413928, 0.37413922, 1)
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(360, 180)
+texture = SubResource("CanvasTexture_5yv1l")
+
+[node name="StoveSection" parent="." unique_id=2017318805 instance=ExtResource("1_bocw4")]
+position = Vector2(-150, -60)
+
+[node name="StoveSection2" parent="." unique_id=336467497 instance=ExtResource("1_bocw4")]
+position = Vector2(-90, -60)
+
+[node name="StoveSection3" parent="." unique_id=1286712099 instance=ExtResource("1_bocw4")]
+position = Vector2(-30, -60)
+
+[node name="StoveSection4" parent="." unique_id=357352589 instance=ExtResource("1_bocw4")]
+position = Vector2(30, -60)
+
+[node name="StoveSection5" parent="." unique_id=433923668 instance=ExtResource("1_bocw4")]
+position = Vector2(90, -60)
+
+[node name="StoveSection6" parent="." unique_id=1559891396 instance=ExtResource("1_bocw4")]
+position = Vector2(150, -60)
+
+[node name="StoveSection7" parent="." unique_id=958561373 instance=ExtResource("1_bocw4")]
+position = Vector2(-150, 0)
+
+[node name="StoveSection8" parent="." unique_id=1687100524 instance=ExtResource("1_bocw4")]
+position = Vector2(-90, 0)
+
+[node name="StoveSection9" parent="." unique_id=277429932 instance=ExtResource("1_bocw4")]
+position = Vector2(-30, 0)
+
+[node name="StoveSection10" parent="." unique_id=390146633 instance=ExtResource("1_bocw4")]
+position = Vector2(30, 0)
+
+[node name="StoveSection11" parent="." unique_id=814153286 instance=ExtResource("1_bocw4")]
+position = Vector2(90, 0)
+
+[node name="StoveSection12" parent="." unique_id=2146513532 instance=ExtResource("1_bocw4")]
+position = Vector2(150, 0)
+
+[node name="StoveSection13" parent="." unique_id=620489607 instance=ExtResource("1_bocw4")]
+position = Vector2(-150, 60)
+
+[node name="StoveSection14" parent="." unique_id=1091244594 instance=ExtResource("1_bocw4")]
+position = Vector2(-90, 60)
+
+[node name="StoveSection15" parent="." unique_id=1431292410 instance=ExtResource("1_bocw4")]
+position = Vector2(-30, 60)
+
+[node name="StoveSection16" parent="." unique_id=1531100128 instance=ExtResource("1_bocw4")]
+position = Vector2(30, 60)
+
+[node name="StoveSection17" parent="." unique_id=194730332 instance=ExtResource("1_bocw4")]
+position = Vector2(90, 60)
+
+[node name="StoveSection18" parent="." unique_id=887787865 instance=ExtResource("1_bocw4")]
+position = Vector2(150, 60)
+
+[connection signal="area_exited" from="StoveSection" to="StoveSection" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection2" to="StoveSection2" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection3" to="StoveSection3" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection4" to="StoveSection4" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection5" to="StoveSection5" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection6" to="StoveSection6" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection7" to="StoveSection7" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection8" to="StoveSection8" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection9" to="StoveSection9" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection10" to="StoveSection10" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection11" to="StoveSection11" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection12" to="StoveSection12" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection13" to="StoveSection13" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection14" to="StoveSection14" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection15" to="StoveSection15" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection16" to="StoveSection16" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection17" to="StoveSection17" method="_on_area_exited"]
+[connection signal="area_exited" from="StoveSection18" to="StoveSection18" method="_on_area_exited"]

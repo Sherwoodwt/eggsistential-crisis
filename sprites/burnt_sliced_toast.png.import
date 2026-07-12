@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40q8cqf8dymj"
-path="res://.godot/imported/egg_meat.png-f227447fdcf5d9afcf6a9f7b3c888c73.ctex"
+uid="uid://bmiq88j0vvflg"
+path="res://.godot/imported/burnt_sliced_toast.png-1474ff193c9e05a2e02600e4da4badff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://egg_meat.png"
-dest_files=["res://.godot/imported/egg_meat.png-f227447fdcf5d9afcf6a9f7b3c888c73.ctex"]
+source_file="res://sprites/burnt_sliced_toast.png"
+dest_files=["res://.godot/imported/burnt_sliced_toast.png-1474ff193c9e05a2e02600e4da4badff.ctex"]
 
 [params]
 

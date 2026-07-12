@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://xr2nbehopw4o"]
+
+[ext_resource type="PackedScene" uid="uid://bg10admtciej8" path="res://scenes/stove.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://br4bm2qccr776" path="res://scenes/ingredient_container.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://koojw113cnu4" path="res://scenes/food/egg.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://dla5p03opnsh4" path="res://scripts/trash.gd" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://dbud3xiu1aw4b" path="res://sprites/container.png" id="6_p57ef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
+size = Vector2(53, 53)
+
+[node name="Game" type="Node2D" unique_id=1126588430]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2138205377]
+
+[node name="Trash" type="Area2D" parent="." unique_id=2090500275]
+position = Vector2(150, 149)
+script = ExtResource("5_iywne")
+capacity = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash" unique_id=348374880]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trash" unique_id=1732783663]
+texture = ExtResource("6_p57ef")
+
+[node name="Stove" parent="." unique_id=2106285633 instance=ExtResource("1_uwrxv")]
+
+[node name="IngredientContainer" parent="." unique_id=470770755 instance=ExtResource("2_yqjtg")]
+position = Vector2(-488, -191)
+ingredient = ExtResource("3_lnu2h")
+amount = 100
+
+[node name="IngredientContainer2" parent="." unique_id=1081981084 instance=ExtResource("2_yqjtg")]
+position = Vector2(-417, -191)
+ingredient = ExtResource("4_lbhrr")
+amount = 100
+
+[connection signal="area_entered" from="Trash" to="Trash" method="_on_area_entered"]
+[connection signal="area_exited" from="Trash" to="Trash" method="_on_area_exited"]

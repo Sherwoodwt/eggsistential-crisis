@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://br4bm2qccr776"]
+
+[ext_resource type="Script" uid="uid://c8rakr4jhl50p" path="res://scripts/ingredient_container.gd" id="1_coqhe"]
+[ext_resource type="Texture2D" uid="uid://dbud3xiu1aw4b" path="res://sprites/container.png" id="2_v0rxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
+size = Vector2(56, 54)
+
+[node name="IngredientContainer" type="Area2D" unique_id=470770755]
+script = ExtResource("1_coqhe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2031868484]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1368836169]
+texture = ExtResource("2_v0rxn")
+
+[node name="Contents" type="Sprite2D" parent="." unique_id=382545043]
+position = Vector2(1, 11)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
