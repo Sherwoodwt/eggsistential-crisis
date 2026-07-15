@@ -1,23 +1,34 @@
 [gd_scene format=3 uid="uid://dgl2o8lwlgiq3"]
 
 [ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_ybnph"]
-[ext_resource type="Texture2D" uid="uid://bava8d2dl0ff1" path="res://sprites/burnt_fried_egg.png" id="2_gbq58"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_gbq58"]
 [ext_resource type="Texture2D" uid="uid://b40q8cqf8dymj" path="res://sprites/fried_egg.png" id="2_hisr7"]
+[ext_resource type="PackedScene" uid="uid://b2b8fa2wtdgmh" path="res://scenes/food/burnt_egg.tscn" id="3_8hkag"]
+
+[sub_resource type="Resource" id="Resource_6phm8"]
+script = ExtResource("2_gbq58")
+cooked_ingredient = ExtResource("3_8hkag")
+cooking_sprite = ExtResource("2_hisr7")
+cooker = "stove"
+cook_time = 5.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5yv1l"]
 radius = 15.033297
 
 [node name="FriedEgg" type="Area2D" unique_id=1726214408]
+input_pickable = false
 script = ExtResource("1_ybnph")
+cook_methods = Array[ExtResource("2_gbq58")]([SubResource("Resource_6phm8")])
 id = "fried_egg"
 is_edible = true
-burn_time = 7.0
-burnt = ExtResource("2_gbq58")
 
 [node name="Timer" type="Timer" parent="." unique_id=472030533]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1813649105]
 shape = SubResource("CircleShape2D_5yv1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156334465]
+z_index = 1
 texture = ExtResource("2_hisr7")

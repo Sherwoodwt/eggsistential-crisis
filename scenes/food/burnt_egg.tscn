@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b2b8fa2wtdgmh"]
+
+[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_1qgpq"]
+[ext_resource type="Texture2D" uid="uid://bava8d2dl0ff1" path="res://sprites/burnt_fried_egg.png" id="2_odwr8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odwr8"]
+radius = 17.029387
+
+[node name="BurntEgg" type="Area2D" unique_id=863196539]
+script = ExtResource("1_1qgpq")
+id = "burnt_egg"
+metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
+
+[node name="Timer" type="Timer" parent="." unique_id=2018130007]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1108062878]
+shape = SubResource("CircleShape2D_odwr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1328421587]
+z_index = 1
+texture = ExtResource("2_odwr8")

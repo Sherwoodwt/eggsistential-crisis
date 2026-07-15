@@ -5,11 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
 size = Vector2(60, 60)
 
-[node name="StoveSection" type="Area2D" unique_id=2017318805]
+[node name="StoveSection" type="Area2D" unique_id=273050683]
 script = ExtResource("1_cxvxy")
 id = "stove"
+metadata/_custom_type_script = "uid://cgwon0x2yxwar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2011303331]
 shape = SubResource("RectangleShape2D_5yv1l")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

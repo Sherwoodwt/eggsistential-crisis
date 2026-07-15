@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://koojw113cnu4"]
+[gd_scene format=3 uid="uid://iol6wwxsgbtg"]
 
-[ext_resource type="Script" uid="uid://txb5lukn44vs" path="res://scripts/cookable_ingredient.gd" id="1_34461"]
+[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_wqibq"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_6phm8"]
 [ext_resource type="Texture2D" uid="uid://gverx1r5lsc0" path="res://sprites/egg.png" id="3_vh25c"]
 [ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/fried_egg.tscn" id="3_ww3ow"]
 [ext_resource type="Texture2D" uid="uid://xebtemqxo770" path="res://sprites/frying_egg.png" id="4_6phm8"]
 
-[sub_resource type="Resource" id="Resource_5yv1l"]
+[sub_resource type="Resource" id="Resource_l64r8"]
 script = ExtResource("2_6phm8")
 cooked_ingredient = ExtResource("3_ww3ow")
 cooking_sprite = ExtResource("4_6phm8")
@@ -14,17 +14,21 @@ cooker = "stove"
 cook_time = 7.0
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l64r8"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]
+radius = 11.0
 
-[node name="Egg" type="Area2D" unique_id=1363460732]
-script = ExtResource("1_34461")
-cook_methods = Array[ExtResource("2_6phm8")]([SubResource("Resource_5yv1l")])
-id = "egg"
+[node name="Egg" type="Area2D" unique_id=1657521017]
+script = ExtResource("1_wqibq")
+cook_methods = Array[ExtResource("2_6phm8")]([SubResource("Resource_l64r8")])
+metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
-[node name="Timer" type="Timer" parent="." unique_id=713227516]
+[node name="Timer" type="Timer" parent="." unique_id=1915532320]
+one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=262817493]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415707753]
+position = Vector2(1, 0.5)
+shape = SubResource("CapsuleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=772893645]
+z_index = 1
 texture = ExtResource("3_vh25c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1371519838]
-shape = SubResource("CapsuleShape2D_l64r8")

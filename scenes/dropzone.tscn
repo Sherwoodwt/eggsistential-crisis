@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://s426u62r6glt"]
+
+[ext_resource type="Script" uid="uid://cgwon0x2yxwar" path="res://scripts/dropzone.gd" id="1_b56ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
+size = Vector2(64, 64)
+
+[node name="Dropzone" type="Area2D" unique_id=1394619472]
+script = ExtResource("1_b56ip")
+metadata/_custom_type_script = "uid://cgwon0x2yxwar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1170215392]
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

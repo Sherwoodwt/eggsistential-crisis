@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://72a47y5ykqwp"]
+
+[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_x4pa0"]
+[ext_resource type="Texture2D" uid="uid://bmiq88j0vvflg" path="res://sprites/burnt_sliced_toast.png" id="2_d1yql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4fji"]
+size = Vector2(51, 45)
+
+[node name="BurntToast" type="Area2D" unique_id=126509092]
+script = ExtResource("1_x4pa0")
+id = "burnt_toast"
+is_bread = true
+metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
+
+[node name="Timer" type="Timer" parent="." unique_id=1763168746]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=531186091]
+position = Vector2(0.5, -5.5)
+shape = SubResource("RectangleShape2D_o4fji")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=347949087]
+z_index = 1
+texture = ExtResource("2_d1yql")

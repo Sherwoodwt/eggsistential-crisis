@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dnctu2rg73guj"]
+
+[ext_resource type="Script" uid="uid://dla5p03opnsh4" path="res://scripts/trash.gd" id="1_2cq4d"]
+[ext_resource type="Texture2D" uid="uid://dbud3xiu1aw4b" path="res://sprites/container.png" id="2_2cq4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
+size = Vector2(55, 52)
+
+[node name="Trash" type="Area2D" unique_id=399260091]
+script = ExtResource("1_2cq4d")
+capacity = 100
+metadata/_custom_type_script = "uid://cgwon0x2yxwar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87656711]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=811313423]
+texture = ExtResource("2_2cq4d")

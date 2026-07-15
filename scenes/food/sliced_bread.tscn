@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://lxxwk60bbusg"]
 
-[ext_resource type="Script" uid="uid://txb5lukn44vs" path="res://scripts/cookable_ingredient.gd" id="1_tvt0f"]
+[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_tvt0f"]
 [ext_resource type="Texture2D" uid="uid://cl5a6lflsh3rl" path="res://sprites/sliced_bread.png" id="2_a34ib"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_o421x"]
 [ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_toast.tscn" id="3_7ix2g"]
 
-[sub_resource type="Resource" id="Resource_5yv1l"]
+[sub_resource type="Resource" id="Resource_lgeo7"]
 script = ExtResource("2_o421x")
 cooked_ingredient = ExtResource("3_7ix2g")
 cooking_sprite = ExtResource("2_a34ib")
@@ -13,21 +13,24 @@ cooker = "stove"
 cook_time = 12.0
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
-size = Vector2(51, 43)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5umn"]
+size = Vector2(60, 48)
 
-[node name="SlicedBread" type="Area2D" unique_id=1597177013]
+[node name="SlicedBread" type="Area2D" unique_id=1121019294]
 script = ExtResource("1_tvt0f")
-cook_methods = Array[ExtResource("2_o421x")]([SubResource("Resource_5yv1l")])
+cook_methods = Array[ExtResource("2_o421x")]([SubResource("Resource_lgeo7")])
 id = "sliced_bread"
 is_bread = true
 is_edible = true
+metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
-[node name="Timer" type="Timer" parent="." unique_id=1627974395]
+[node name="Timer" type="Timer" parent="." unique_id=476250870]
+one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2095187760]
-position = Vector2(-0.5, -7.5)
-shape = SubResource("RectangleShape2D_5yv1l")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=171815821]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_g5umn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1767466773]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=176472749]
+z_index = 1
 texture = ExtResource("2_a34ib")

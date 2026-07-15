@@ -1,10 +1,16 @@
-extends DropSpace
+class_name Trash
+extends Dropzone
 
 @export var capacity: int
 
 var content: int
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_released("grab") and hover_ingredient != null and content < capacity:
-		hover_ingredient.queue_free.call_deferred()
-		content += 1
+func _ready():
+	placed.connect(_trash)
+
+func _trash(ingredient: Ingredient):
+	if content > capacity:
+		return
+	
+	content += 1
+	ingredient.queue_free.call_deferred()
