@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbud3xiu1aw4b" path="res://sprites/container.png" id="2_2cq4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
-size = Vector2(55, 52)
+size = Vector2(64, 64)
 
 [node name="Trash" type="Area2D" unique_id=399260091]
 script = ExtResource("1_2cq4d")

@@ -9,6 +9,9 @@ signal moved
 var dragging: bool
 var ingredient: Ingredient
 
+func can_place(ing: Ingredient) -> bool:
+	return true
+
 func point_overlap(point: Vector2) -> Dropzone:
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = point
@@ -35,13 +38,13 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_released("grab") and dragging:
 		dragging = false
 		var dropzone = point_overlap(get_global_mouse_position())
-		if dropzone and ingredient.can_place(dropzone):
+		if dropzone and dropzone.can_place(ingredient):
 			ingredient.reparent(dropzone)
 			ingredient.global_position = dropzone.global_position
 			dropzone.ingredient = ingredient
 			dropzone.placed.emit()
-			ingredient = null
 			moved.emit()
+			ingredient = null
 		else:
 			ingredient.global_position = global_position
 			dropped.emit()

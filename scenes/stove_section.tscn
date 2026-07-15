@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://uuxkriebs5wa" path="res://scripts/cooker.gd" id="1_cxvxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
-size = Vector2(60, 60)
+size = Vector2(64, 64)
 
 [node name="StoveSection" type="Area2D" unique_id=273050683]
 script = ExtResource("1_cxvxy")

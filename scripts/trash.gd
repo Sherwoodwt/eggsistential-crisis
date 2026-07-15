@@ -8,7 +8,7 @@ var content: int
 func _ready():
 	placed.connect(_trash)
 
-func _trash(ingredient: Ingredient):
+func _trash():
 	if content > capacity:
 		return
 	

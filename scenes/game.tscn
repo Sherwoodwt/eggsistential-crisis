@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xr2nbehopw4o"]
 
 [ext_resource type="PackedScene" uid="uid://bg10admtciej8" path="res://scenes/stove.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cxcgtxhkrj6np" path="res://scenes/prep_area.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bhuknbsq0bggq" path="res://scenes/ingredient_container.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://iol6wwxsgbtg" path="res://scenes/food/egg.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread.tscn" id="4_iywne"]
@@ -12,13 +13,16 @@
 
 [node name="Stove" parent="." unique_id=2106285633 instance=ExtResource("1_uwrxv")]
 
+[node name="PrepArea" parent="." unique_id=664518243 instance=ExtResource("2_p57ef")]
+position = Vector2(362, 0)
+
 [node name="IngredientContainer2" parent="." unique_id=387531494 instance=ExtResource("2_yqjtg")]
-position = Vector2(-438, -197)
+position = Vector2(-288, -128)
 ingredient_scene = ExtResource("3_lbhrr")
 
 [node name="IngredientContainer" parent="." unique_id=1638330012 instance=ExtResource("2_yqjtg")]
-position = Vector2(-330, -197)
+position = Vector2(-224, -128)
 ingredient_scene = ExtResource("4_iywne")
 
 [node name="Trash" parent="." unique_id=399260091 instance=ExtResource("5_iywne")]
-position = Vector2(154, 150)
+position = Vector2(159, 152)

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cxcgtxhkrj6np"]
+
+[ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzone.tscn" id="1_0apxy"]
+[ext_resource type="Script" uid="uid://owmeou866ixr" path="res://scripts/prep_zone.gd" id="2_ex38s"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_l64r8"]
+
+[node name="PrepArea" type="Node2D" unique_id=664518243]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1241310325]
+modulate = Color(0.7529412, 0.74509805, 0.74509805, 1)
+scale = Vector2(256, 128)
+texture = SubResource("CanvasTexture_l64r8")
+
+[node name="PrepSection" parent="." unique_id=1394619472 instance=ExtResource("1_0apxy")]
+position = Vector2(-96, -32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection2" parent="." unique_id=376443013 instance=ExtResource("1_0apxy")]
+position = Vector2(-96, 32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection3" parent="." unique_id=1095819830 instance=ExtResource("1_0apxy")]
+position = Vector2(-32, -32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection4" parent="." unique_id=693995687 instance=ExtResource("1_0apxy")]
+position = Vector2(-32, 32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection5" parent="." unique_id=1209086390 instance=ExtResource("1_0apxy")]
+position = Vector2(32, -32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection6" parent="." unique_id=543243846 instance=ExtResource("1_0apxy")]
+position = Vector2(32, 32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection7" parent="." unique_id=1698873918 instance=ExtResource("1_0apxy")]
+position = Vector2(96, -32)
+script = ExtResource("2_ex38s")
+
+[node name="PrepSection8" parent="." unique_id=419360538 instance=ExtResource("1_0apxy")]
+position = Vector2(96, 32)
+script = ExtResource("2_ex38s")

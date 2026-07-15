@@ -11,6 +11,7 @@ signal done_cookin(ingredient: Ingredient)
 @export var id: String
 @export var is_bread: bool
 @export var is_edible: bool
+@export var is_sauce: bool
 
 var method: CookMethod
 
@@ -23,20 +24,17 @@ func cook(cooker: Cooker):
 		return
 	method = cook_methods[i]
 	sprite.texture = method.cooking_sprite
-	timer.wait_time = method.cook_time
-	timer.start()
+	if timer.paused:
+		timer.paused = false
+	else:
+		timer.wait_time = method.cook_time
+		timer.start()
+
+func stop_cookin():
+	timer.paused = true
 
 func finish_cookin():
 	var instance = method.cooked_ingredient.instantiate() as Ingredient
 	add_sibling(instance)
 	queue_free.call_deferred()
 	done_cookin.emit(instance)
-
-func can_place(dropzone: Dropzone) -> bool:
-	if dropzone is Cooker:
-		var cooker = dropzone as Cooker
-		var index = cook_methods.find_custom(func(m): return m.cooker == cooker.id)
-		return index >= 0
-	if dropzone is Trash:
-		return true
-	return false

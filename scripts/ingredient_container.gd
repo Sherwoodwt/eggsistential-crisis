@@ -7,6 +7,9 @@ extends Dropzone
 @export var amount: int
 @export var ingredient_scene: PackedScene
 
+func can_place(ing: Ingredient) -> bool:
+	return false
+
 func _ready():
 	# set icon
 	ingredient = ingredient_scene.instantiate() as Ingredient
