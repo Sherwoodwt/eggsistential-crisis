@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://2i3rfon2nkok"]
+
+[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_2v7d2"]
+[ext_resource type="Texture2D" uid="uid://ki8ir3c532jc" path="res://sprites/tomato_slice.png" id="4_1bi57"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]
+radius = 11.0
+
+[node name="Tomato" type="Area2D" unique_id=1657521017]
+script = ExtResource("1_2v7d2")
+id = "tomato"
+is_edible = true
+hover_sprite = ExtResource("4_1bi57")
+placed_sprite = ExtResource("4_1bi57")
+icon_sprite = ExtResource("4_1bi57")
+metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
+
+[node name="Timer" type="Timer" parent="." unique_id=1915532320]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415707753]
+position = Vector2(1, 0.5)
+shape = SubResource("CapsuleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=772893645]
+z_index = 1
+texture = ExtResource("4_1bi57")

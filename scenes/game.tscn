@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://iol6wwxsgbtg" path="res://scenes/food/egg.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://dnctu2rg73guj" path="res://scenes/trash.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bbiey0godthw7" path="res://scenes/counter.tscn" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://mvb5org2cu4a" path="res://sprites/customer.png" id="8_gee14"]
+[ext_resource type="Script" uid="uid://dttpywie2j1cp" path="res://scripts/customer_generator.gd" id="8_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dt10gjauxlf6l" path="res://scenes/ticket.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_toast.tscn" id="10_dinhu"]
+[ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/fried_egg.tscn" id="11_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b25rm10ldtn16" path="res://scenes/food/mayo.tscn" id="11_trtic"]
+[ext_resource type="PackedScene" uid="uid://2i3rfon2nkok" path="res://scenes/food/tomato.tscn" id="13_ir15t"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 
 [node name="Game" type="Node2D" unique_id=1126588430]
 
@@ -14,7 +24,10 @@
 [node name="Stove" parent="." unique_id=2106285633 instance=ExtResource("1_uwrxv")]
 
 [node name="PrepArea" parent="." unique_id=664518243 instance=ExtResource("2_p57ef")]
-position = Vector2(362, 0)
+position = Vector2(342, 31)
+
+[node name="Counter" parent="." unique_id=490754155 instance=ExtResource("7_u5sy4")]
+position = Vector2(280, -175)
 
 [node name="IngredientContainer2" parent="." unique_id=387531494 instance=ExtResource("2_yqjtg")]
 position = Vector2(-288, -128)
@@ -26,3 +39,42 @@ ingredient_scene = ExtResource("4_iywne")
 
 [node name="Trash" parent="." unique_id=399260091 instance=ExtResource("5_iywne")]
 position = Vector2(159, 152)
+
+[node name="CustomerGenerator" type="Node2D" parent="." unique_id=1667417632]
+script = ExtResource("8_kvpfn")
+customer_sprites = Array[Texture2D]([ExtResource("8_gee14")])
+min_time = 3.0
+max_time = 10.0
+breads = Array[PackedScene]([ExtResource("4_iywne"), ExtResource("10_dinhu")])
+sauces = Array[PackedScene]([ExtResource("11_trtic")])
+eggs = Array[PackedScene]([ExtResource("11_kvuet")])
+toppings = Array[PackedScene]([ExtResource("13_ir15t")])
+
+[node name="Timer" type="Timer" parent="CustomerGenerator" unique_id=290292201]
+one_shot = true
+
+[node name="Customer" type="Node2D" parent="CustomerGenerator" unique_id=418327661]
+position = Vector2(-451, -213)
+
+[node name="Sprite2D" type="Sprite2D" parent="CustomerGenerator/Customer" unique_id=85898573]
+texture = ExtResource("8_gee14")
+
+[node name="Tickets" type="Node2D" parent="CustomerGenerator" unique_id=2010256475]
+position = Vector2(-186, -232)
+
+[node name="Sprite2D" type="Sprite2D" parent="CustomerGenerator/Tickets" unique_id=1512887209]
+position = Vector2(91, -76)
+scale = Vector2(400, 32)
+texture = SubResource("CanvasTexture_5yv1l")
+
+[node name="Ticket" parent="CustomerGenerator/Tickets" unique_id=321371633 instance=ExtResource("9_0tnpc")]
+position = Vector2(251, -16)
+
+[node name="Ticket2" parent="CustomerGenerator/Tickets" unique_id=1944554615 instance=ExtResource("9_0tnpc")]
+position = Vector2(148, -16)
+
+[node name="Ticket3" parent="CustomerGenerator/Tickets" unique_id=1372912240 instance=ExtResource("9_0tnpc")]
+position = Vector2(41, -16)
+
+[node name="Ticket4" parent="CustomerGenerator/Tickets" unique_id=577526861 instance=ExtResource("9_0tnpc")]
+position = Vector2(-58, -16)

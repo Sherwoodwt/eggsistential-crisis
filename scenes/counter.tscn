@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bbiey0godthw7"]
+
+[ext_resource type="PackedScene" uid="uid://b6aqutmk276wx" path="res://scenes/counter_section.tscn" id="1_sc7mx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
+
+[node name="Counter" type="Node2D" unique_id=490754155]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=756012200]
+modulate = Color(0.8047426, 0.80474263, 0.8047426, 1)
+scale = Vector2(128, 64)
+texture = SubResource("CanvasTexture_5yv1l")
+
+[node name="CounterSection" parent="." unique_id=1831347061 instance=ExtResource("1_sc7mx")]
+position = Vector2(-48, -16)
+
+[node name="CounterSection2" parent="." unique_id=1156789945 instance=ExtResource("1_sc7mx")]
+position = Vector2(-16, -16)
+
+[node name="CounterSection3" parent="." unique_id=1133098559 instance=ExtResource("1_sc7mx")]
+position = Vector2(16, -16)
+
+[node name="CounterSection4" parent="." unique_id=1284078108 instance=ExtResource("1_sc7mx")]
+position = Vector2(48, -16)
+
+[node name="CounterSection5" parent="." unique_id=1687920585 instance=ExtResource("1_sc7mx")]
+position = Vector2(-48, 16)
+
+[node name="CounterSection6" parent="." unique_id=1221443208 instance=ExtResource("1_sc7mx")]
+position = Vector2(-16, 16)
+
+[node name="CounterSection7" parent="." unique_id=289317908 instance=ExtResource("1_sc7mx")]
+position = Vector2(16, 16)
+
+[node name="CounterSection8" parent="." unique_id=1396435418 instance=ExtResource("1_sc7mx")]
+position = Vector2(48, 16)

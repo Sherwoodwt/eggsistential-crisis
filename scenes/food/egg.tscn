@@ -9,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_l64r8"]
 script = ExtResource("2_6phm8")
 cooked_ingredient = ExtResource("3_ww3ow")
-cooking_sprite = ExtResource("4_6phm8")
 cooker = "stove"
 cook_time = 7.0
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
@@ -20,6 +19,10 @@ radius = 11.0
 [node name="Egg" type="Area2D" unique_id=1657521017]
 script = ExtResource("1_wqibq")
 cook_methods = Array[ExtResource("2_6phm8")]([SubResource("Resource_l64r8")])
+id = "egg"
+hover_sprite = ExtResource("3_vh25c")
+placed_sprite = ExtResource("4_6phm8")
+icon_sprite = ExtResource("3_vh25c")
 metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
 [node name="Timer" type="Timer" parent="." unique_id=1915532320]

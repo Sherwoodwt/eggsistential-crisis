@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dt10gjauxlf6l"]
+
+[ext_resource type="Script" uid="uid://cs3eg1so6k185" path="res://scripts/order.gd" id="1_7yqn5"]
+[ext_resource type="Texture2D" uid="uid://m7rbpw6360u4" path="res://sprites/ticket.png" id="1_krxyo"]
+
+[node name="Order" type="Node2D" unique_id=321371633]
+script = ExtResource("1_7yqn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=628162068]
+texture = ExtResource("1_krxyo")
+
+[node name="TicketItem" type="Node2D" parent="." unique_id=1059267092]
+position = Vector2(-30, -48)
+
+[node name="TicketItem2" type="Node2D" parent="." unique_id=1391579527]
+position = Vector2(-10, -48)
+
+[node name="TicketItem3" type="Node2D" parent="." unique_id=1073232841]
+position = Vector2(10, -48)
+
+[node name="TicketItem4" type="Node2D" parent="." unique_id=1068344990]
+position = Vector2(30, -48)

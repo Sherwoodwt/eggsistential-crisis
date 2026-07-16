@@ -8,7 +8,6 @@
 [sub_resource type="Resource" id="Resource_6phm8"]
 script = ExtResource("2_gbq58")
 cooked_ingredient = ExtResource("3_8hkag")
-cooking_sprite = ExtResource("2_hisr7")
 cooker = "stove"
 cook_time = 5.0
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
@@ -22,6 +21,9 @@ script = ExtResource("1_ybnph")
 cook_methods = Array[ExtResource("2_gbq58")]([SubResource("Resource_6phm8")])
 id = "fried_egg"
 is_edible = true
+hover_sprite = ExtResource("2_hisr7")
+placed_sprite = ExtResource("2_hisr7")
+icon_sprite = ExtResource("2_hisr7")
 
 [node name="Timer" type="Timer" parent="." unique_id=472030533]
 one_shot = true

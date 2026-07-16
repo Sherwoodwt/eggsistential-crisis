@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmiq88j0vvflg"
-path="res://.godot/imported/burnt_sliced_toast.png-1474ff193c9e05a2e02600e4da4badff.ctex"
+uid="uid://mvb5org2cu4a"
+path="res://.godot/imported/customer.png-605589814721b82b223ff7dc0cdb59da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/burnt_sliced_toast.png"
-dest_files=["res://.godot/imported/burnt_sliced_toast.png-1474ff193c9e05a2e02600e4da4badff.ctex"]
+source_file="res://sprites/customer.png"
+dest_files=["res://.godot/imported/customer.png-605589814721b82b223ff7dc0cdb59da.ctex"]
 
 [params]
 

@@ -1,36 +1,38 @@
 [gd_scene format=3 uid="uid://lxxwk60bbusg"]
 
-[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_tvt0f"]
+[ext_resource type="Script" uid="uid://bqcyyu0587p8t" path="res://scripts/bread.gd" id="1_g5umn"]
 [ext_resource type="Texture2D" uid="uid://cl5a6lflsh3rl" path="res://sprites/sliced_bread.png" id="2_a34ib"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_o421x"]
 [ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_toast.tscn" id="3_7ix2g"]
+[ext_resource type="Texture2D" uid="uid://dt8ugc7y4knpd" path="res://sprites/sliced_bread_icon.png" id="5_o421x"]
 
 [sub_resource type="Resource" id="Resource_lgeo7"]
 script = ExtResource("2_o421x")
 cooked_ingredient = ExtResource("3_7ix2g")
-cooking_sprite = ExtResource("2_a34ib")
 cooker = "stove"
 cook_time = 12.0
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5umn"]
-size = Vector2(60, 48)
+size = Vector2(34, 29)
 
 [node name="SlicedBread" type="Area2D" unique_id=1121019294]
-script = ExtResource("1_tvt0f")
+script = ExtResource("1_g5umn")
 cook_methods = Array[ExtResource("2_o421x")]([SubResource("Resource_lgeo7")])
 id = "sliced_bread"
-is_bread = true
 is_edible = true
+hover_sprite = ExtResource("5_o421x")
+placed_sprite = ExtResource("2_a34ib")
+icon_sprite = ExtResource("5_o421x")
 metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
 [node name="Timer" type="Timer" parent="." unique_id=476250870]
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=171815821]
-position = Vector2(0, -6)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_g5umn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=176472749]
 z_index = 1
-texture = ExtResource("2_a34ib")
+texture = ExtResource("5_o421x")

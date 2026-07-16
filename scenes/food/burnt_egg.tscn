@@ -9,6 +9,9 @@ radius = 17.029387
 [node name="BurntEgg" type="Area2D" unique_id=863196539]
 script = ExtResource("1_1qgpq")
 id = "burnt_egg"
+hover_sprite = ExtResource("2_odwr8")
+placed_sprite = ExtResource("2_odwr8")
+icon_sprite = ExtResource("2_odwr8")
 metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
 [node name="Timer" type="Timer" parent="." unique_id=2018130007]
