@@ -36,3 +36,6 @@ shape = SubResource("RectangleShape2D_5yv1l")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512631976]
 z_index = 1
 texture = ExtResource("2_ts1dx")
+
+[node name="ingredient_spot" type="Node2D" parent="." unique_id=1320346795]
+position = Vector2(-17, 0)

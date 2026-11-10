@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://23knctddjng5"]
+
+[ext_resource type="Texture2D" uid="uid://cv8svbhpu0vdw" path="res://sprites/highlight.png" id="1_mffkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw6i5"]
+atlas = ExtResource("1_mffkr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbl8i"]
+atlas = ExtResource("1_mffkr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x20w8"]
+atlas = ExtResource("1_mffkr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxk7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw6i5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbl8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x20w8")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Highlight" type="AnimatedSprite2D" unique_id=624597074]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qxk7m")
+autoplay = "default"

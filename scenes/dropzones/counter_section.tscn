@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b6aqutmk276wx"]
+
+[ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzones/dropzone.tscn" id="1_071lp"]
+[ext_resource type="Script" uid="uid://1epfi5phvuax" path="res://scripts/dropzones/counter_section.gd" id="2_x6nun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_071lp"]
+size = Vector2(32, 32)
+
+[node name="CounterSection" unique_id=1394619472 instance=ExtResource("1_071lp")]
+script = ExtResource("2_x6nun")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1170215392]
+shape = SubResource("RectangleShape2D_071lp")

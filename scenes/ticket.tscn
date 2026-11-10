@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dt10gjauxlf6l"]
 
-[ext_resource type="Script" uid="uid://cs3eg1so6k185" path="res://scripts/order.gd" id="1_7yqn5"]
+[ext_resource type="Script" uid="uid://cs3eg1so6k185" path="res://scripts/ticket.gd" id="1_7yqn5"]
 [ext_resource type="Texture2D" uid="uid://m7rbpw6360u4" path="res://sprites/ticket.png" id="1_krxyo"]
 
-[node name="Order" type="Node2D" unique_id=321371633]
+[node name="Ticket" type="Node2D" unique_id=321371633]
 script = ExtResource("1_7yqn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=628162068]

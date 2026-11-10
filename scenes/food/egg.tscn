@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://gverx1r5lsc0" path="res://sprites/egg.png" id="3_vh25c"]
 [ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/fried_egg.tscn" id="3_ww3ow"]
 [ext_resource type="Texture2D" uid="uid://xebtemqxo770" path="res://sprites/frying_egg.png" id="4_6phm8"]
+[ext_resource type="Texture2D" uid="uid://byc0sysee8la8" path="res://sprites/egg_container_full.png" id="6_t62lf"]
+[ext_resource type="Texture2D" uid="uid://nwifivybx1wh" path="res://sprites/egg_container_half.png" id="7_omj5l"]
+[ext_resource type="Texture2D" uid="uid://wpbi4gwqwcvh" path="res://sprites/egg_container_last.png" id="8_7sq1t"]
 
 [sub_resource type="Resource" id="Resource_l64r8"]
 script = ExtResource("2_6phm8")
@@ -23,6 +26,9 @@ id = "egg"
 hover_sprite = ExtResource("3_vh25c")
 placed_sprite = ExtResource("4_6phm8")
 icon_sprite = ExtResource("3_vh25c")
+full_container_sprite = ExtResource("6_t62lf")
+half_container_sprite = ExtResource("7_omj5l")
+last_container_sprite = ExtResource("8_7sq1t")
 metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
 [node name="Timer" type="Timer" parent="." unique_id=1915532320]

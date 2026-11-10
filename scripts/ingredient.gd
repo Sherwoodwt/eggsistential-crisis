@@ -10,9 +10,13 @@ signal done_cookin(ingredient: Ingredient)
 @export var id: String
 @export var is_edible: bool
 @export var is_sauce: bool
+
 @export var hover_sprite: Texture2D
 @export var placed_sprite: Texture2D
 @export var icon_sprite: Texture2D
+@export var full_container_sprite: Texture2D
+@export var half_container_sprite: Texture2D
+@export var last_container_sprite: Texture2D
 
 var method: CookMethod
 
@@ -30,9 +34,6 @@ func cook(cooker: Cooker):
 	else:
 		timer.wait_time = method.cook_time
 		timer.start()
-
-func _process(delta: float) -> void:
-	print(timer.time_left)
 
 func stop_cookin():
 	timer.paused = true

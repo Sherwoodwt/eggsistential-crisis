@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bbiey0godthw7"]
 
-[ext_resource type="PackedScene" uid="uid://b6aqutmk276wx" path="res://scenes/counter_section.tscn" id="1_sc7mx"]
+[ext_resource type="Script" uid="uid://bg1x8p55hr3n6" path="res://scripts/counter.gd" id="1_8e5hq"]
+[ext_resource type="PackedScene" uid="uid://b6aqutmk276wx" path="res://scenes/dropzones/counter_section.tscn" id="1_sc7mx"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 
 [node name="Counter" type="Node2D" unique_id=490754155]
+script = ExtResource("1_8e5hq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=756012200]
 modulate = Color(0.8047426, 0.80474263, 0.8047426, 1)

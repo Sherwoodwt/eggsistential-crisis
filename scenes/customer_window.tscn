@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bekijt06egs6s"]
+
+[ext_resource type="PackedScene" uid="uid://nxuakkuveimf" path="res://scenes/clickzone.tscn" id="1_8qg4y"]
+[ext_resource type="Script" uid="uid://dje0mndbw3oah" path="res://scripts/customer_window.gd" id="2_3tb6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm354"]
+size = Vector2(120, 120)
+
+[node name="CustomerWindow" unique_id=759986310 instance=ExtResource("1_8qg4y")]
+visible = true
+script = ExtResource("2_3tb6q")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1733873659]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_mm354")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1460434440]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3" unique_id=1675701640]
+
+[node name="LineCount" type="Label" parent="CanvasLayer" index="0" unique_id=686081358]
+offset_left = 106.0
+offset_top = 284.0
+offset_right = 172.0
+offset_bottom = 307.0
+text = "IN LINE: 0"

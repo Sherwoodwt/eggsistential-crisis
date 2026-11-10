@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dnctu2rg73guj"]
+
+[ext_resource type="Script" uid="uid://dla5p03opnsh4" path="res://scripts/dropzones/trash.gd" id="1_2cq4d"]
+[ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzones/dropzone.tscn" id="1_w6jqc"]
+[ext_resource type="Texture2D" uid="uid://dbud3xiu1aw4b" path="res://sprites/container.png" id="2_2cq4d"]
+
+[node name="Trash" unique_id=1394619472 instance=ExtResource("1_w6jqc")]
+script = ExtResource("1_2cq4d")
+capacity = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=2079057646]
+texture = ExtResource("2_2cq4d")

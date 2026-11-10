@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bg10admtciej8"]
 
-[ext_resource type="PackedScene" uid="uid://di5ujrudev4ja" path="res://scenes/stove_section.tscn" id="1_bocw4"]
+[ext_resource type="PackedScene" uid="uid://di5ujrudev4ja" path="res://scenes/dropzones/stove_section.tscn" id="1_bocw4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 

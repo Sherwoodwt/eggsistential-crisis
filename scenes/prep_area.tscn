@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cxcgtxhkrj6np"]
 
-[ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzone.tscn" id="1_0apxy"]
-[ext_resource type="Script" uid="uid://owmeou866ixr" path="res://scripts/prep_zone.gd" id="2_ex38s"]
+[ext_resource type="PackedScene" uid="uid://d4cdfv7njnvty" path="res://scenes/dropzones/prep_zone.tscn" id="1_0apxy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_l64r8"]
 
@@ -12,34 +11,26 @@ modulate = Color(0.7529412, 0.74509805, 0.74509805, 1)
 scale = Vector2(256, 128)
 texture = SubResource("CanvasTexture_l64r8")
 
-[node name="PrepSection" parent="." unique_id=1394619472 instance=ExtResource("1_0apxy")]
+[node name="PrepZone" parent="." unique_id=1394619472 instance=ExtResource("1_0apxy")]
 position = Vector2(-96, -32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection2" parent="." unique_id=376443013 instance=ExtResource("1_0apxy")]
+[node name="PrepZone2" parent="." unique_id=327790341 instance=ExtResource("1_0apxy")]
 position = Vector2(-96, 32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection3" parent="." unique_id=1095819830 instance=ExtResource("1_0apxy")]
+[node name="PrepZone3" parent="." unique_id=1561336360 instance=ExtResource("1_0apxy")]
 position = Vector2(-32, -32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection4" parent="." unique_id=693995687 instance=ExtResource("1_0apxy")]
+[node name="PrepZone4" parent="." unique_id=736426165 instance=ExtResource("1_0apxy")]
 position = Vector2(-32, 32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection5" parent="." unique_id=1209086390 instance=ExtResource("1_0apxy")]
+[node name="PrepZone5" parent="." unique_id=174636996 instance=ExtResource("1_0apxy")]
 position = Vector2(32, -32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection6" parent="." unique_id=543243846 instance=ExtResource("1_0apxy")]
+[node name="PrepZone6" parent="." unique_id=1927539072 instance=ExtResource("1_0apxy")]
 position = Vector2(32, 32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection7" parent="." unique_id=1698873918 instance=ExtResource("1_0apxy")]
+[node name="PrepZone7" parent="." unique_id=790399975 instance=ExtResource("1_0apxy")]
 position = Vector2(96, -32)
-script = ExtResource("2_ex38s")
 
-[node name="PrepSection8" parent="." unique_id=419360538 instance=ExtResource("1_0apxy")]
+[node name="PrepZone8" parent="." unique_id=1351946084 instance=ExtResource("1_0apxy")]
 position = Vector2(96, 32)
-script = ExtResource("2_ex38s")

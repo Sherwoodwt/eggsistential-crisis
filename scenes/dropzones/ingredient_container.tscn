@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhuknbsq0bggq"]
+
+[ext_resource type="Script" uid="uid://c8rakr4jhl50p" path="res://scripts/dropzones/ingredient_container.gd" id="1_coqhe"]
+[ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzones/dropzone.tscn" id="1_u5mfx"]
+[ext_resource type="Texture2D" uid="uid://dbud3xiu1aw4b" path="res://sprites/container.png" id="2_v0rxn"]
+
+[node name="IngredientContainer" unique_id=1394619472 instance=ExtResource("1_u5mfx")]
+script = ExtResource("1_coqhe")
+capacity = 24
+amount = 24
+ingredient_scene = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1352951151]
+scale = Vector2(2, 2)
+texture = ExtResource("2_v0rxn")

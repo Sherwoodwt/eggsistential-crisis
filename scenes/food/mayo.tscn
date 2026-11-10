@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_u18tg"]
 [ext_resource type="Texture2D" uid="uid://btp6xhmhe6isg" path="res://sprites/mayo_spoon.png" id="2_325hs"]
-[ext_resource type="Texture2D" uid="uid://blunue4ype6av" path="res://sprites/mayo_container.png" id="2_hksnw"]
+[ext_resource type="Texture2D" uid="uid://blunue4ype6av" path="res://sprites/mayo_container_full.png" id="2_hksnw"]
 [ext_resource type="Texture2D" uid="uid://8n3gw112q54l" path="res://sprites/mayo.png" id="2_yo0g6"]
+[ext_resource type="Texture2D" uid="uid://6inavhj73w7d" path="res://sprites/mayo_container_half.png" id="5_plo38"]
+[ext_resource type="Texture2D" uid="uid://c1kxgcgebdemu" path="res://sprites/mayo_container_last.png" id="6_22loq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]
 radius = 11.0
@@ -16,6 +18,9 @@ is_sauce = true
 hover_sprite = ExtResource("2_325hs")
 placed_sprite = ExtResource("2_yo0g6")
 icon_sprite = ExtResource("2_yo0g6")
+full_container_sprite = ExtResource("2_hksnw")
+half_container_sprite = ExtResource("5_plo38")
+last_container_sprite = ExtResource("6_22loq")
 metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
 [node name="Timer" type="Timer" parent="." unique_id=1915532320]

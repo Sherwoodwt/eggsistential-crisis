@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_o421x"]
 [ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_toast.tscn" id="3_7ix2g"]
 [ext_resource type="Texture2D" uid="uid://dt8ugc7y4knpd" path="res://sprites/sliced_bread_icon.png" id="5_o421x"]
+[ext_resource type="Texture2D" uid="uid://bfvk7f6c62ysd" path="res://sprites/bread_container_full.png" id="6_otahj"]
+[ext_resource type="Texture2D" uid="uid://begtpdh5ljpur" path="res://sprites/bread_container_half.png" id="7_kknea"]
+[ext_resource type="Texture2D" uid="uid://wdql01c8x3wi" path="res://sprites/bread_container_last.png" id="8_cleni"]
 
 [sub_resource type="Resource" id="Resource_lgeo7"]
 script = ExtResource("2_o421x")
@@ -24,6 +27,9 @@ is_edible = true
 hover_sprite = ExtResource("5_o421x")
 placed_sprite = ExtResource("2_a34ib")
 icon_sprite = ExtResource("5_o421x")
+full_container_sprite = ExtResource("6_otahj")
+half_container_sprite = ExtResource("7_kknea")
+last_container_sprite = ExtResource("8_cleni")
 metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
 [node name="Timer" type="Timer" parent="." unique_id=476250870]
@@ -36,3 +42,6 @@ shape = SubResource("RectangleShape2D_g5umn")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=176472749]
 z_index = 1
 texture = ExtResource("5_o421x")
+
+[node name="ingredient_spot" type="Node2D" parent="." unique_id=947576107]
+position = Vector2(-17, 0)
