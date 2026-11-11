@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://cs3eg1so6k185" path="res://scripts/ticket.gd" id="1_7yqn5"]
 [ext_resource type="Texture2D" uid="uid://m7rbpw6360u4" path="res://sprites/ticket.png" id="1_krxyo"]
+[ext_resource type="Texture2D" uid="uid://cfnmmar0qyfon" path="res://sprites/empty_health.png" id="2_o7y5v"]
+[ext_resource type="Texture2D" uid="uid://brmov1wu88jgi" path="res://sprites/full_health.png" id="3_wp4qn"]
 
 [node name="Ticket" type="Node2D" unique_id=321371633]
 script = ExtResource("1_7yqn5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1520167492]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1111492866]
+offset_right = 64.0
+offset_bottom = 192.0
+fill_mode = 3
+texture_under = ExtResource("2_o7y5v")
+texture_progress = ExtResource("3_wp4qn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=628162068]
 texture = ExtResource("1_krxyo")

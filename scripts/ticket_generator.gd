@@ -12,14 +12,18 @@ const MAX_TICKETS := 4
 @export var toppings: Array[PackedScene]
 
 var cur := 0
-
 var tickets: Array[Ticket]
+
+func _ready():
+	SignalBus.sale_made.connect(remove_ticket)
+	SignalBus.customer_expired.connect(remove_ticket)
 
 func take_order(customer: Customer):
 	if cur >= ticket_nodes.size():
 		print("TOO MANY TICKETS")
 		return
-	var ticket = ticket_prefab.instantiate()
+	var ticket := ticket_prefab.instantiate() as Ticket
+	ticket.customer = customer
 	var sandwich_count = randi_range(1, 4)
 	for i in range(sandwich_count):
 		var sandwich = random_sandwich()
@@ -51,7 +55,7 @@ func random_sandwich() -> Bread:
 func has_room() -> bool:
 	return tickets.size() < MAX_TICKETS
 
-func send_ticket(ticket: Ticket):
+func remove_ticket(ticket: Ticket):
 	var i = tickets.find(ticket)
 	tickets.remove_at(i)
 	print("deleting ticket")

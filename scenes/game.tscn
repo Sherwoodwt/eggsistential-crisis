@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cvqjyatcgtn5u" path="res://scripts/game.gd" id="1_pl11u"]
 [ext_resource type="PackedScene" uid="uid://bg10admtciej8" path="res://scenes/stove.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cxcgtxhkrj6np" path="res://scenes/prep_area.tscn" id="2_p57ef"]
+[ext_resource type="Texture2D" uid="uid://f0vt5fuf4be4" path="res://sprites/empty_rating.png" id="2_sww3w"]
 [ext_resource type="PackedScene" uid="uid://bhuknbsq0bggq" path="res://scenes/dropzones/ingredient_container.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://iol6wwxsgbtg" path="res://scenes/food/egg.tscn" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://eqex7qjox75q" path="res://sprites/full_rating.png" id="3_suyxu"]
 [ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://dnctu2rg73guj" path="res://scenes/dropzones/trash.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bbiey0godthw7" path="res://scenes/counter.tscn" id="7_u5sy4"]
@@ -20,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bykn72scj0dw5" path="res://sprites/robinhood.png" id="14_rysoc"]
 [ext_resource type="PackedScene" uid="uid://ci0um4xxfcfj5" path="res://scenes/cashier.tscn" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://dynlnt0p4614k" path="res://sprites/king_arthur.png" id="16_37s47"]
+[ext_resource type="PackedScene" uid="uid://b8sgy0g0kpeg8" path="res://scenes/customer.tscn" id="16_sww3w"]
 [ext_resource type="Texture2D" uid="uid://btsda6raxy14m" path="res://sprites/cyclops.png" id="17_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://dbhh8udxn7t5x" path="res://sprites/toothfairy.png" id="18_5newe"]
 [ext_resource type="Texture2D" uid="uid://dknpbbcbyom35" path="res://sprites/ugly_duckling.png" id="18_e1j6l"]
@@ -41,6 +44,21 @@ offset_bottom = 54.0
 text = "SERVED: 0"
 horizontal_alignment = 2
 
+[node name="Health" type="TextureProgressBar" parent="CanvasLayer" unique_id=484231487]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_top = -355.0
+offset_right = 170.0
+offset_bottom = -35.0
+grow_vertical = 0
+max_value = 5.0
+value = 5.0
+fill_mode = 3
+texture_under = ExtResource("2_sww3w")
+texture_progress = ExtResource("3_suyxu")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2138205377]
 
 [node name="Stove" parent="." unique_id=2106285633 instance=ExtResource("1_uwrxv")]
@@ -52,11 +70,11 @@ position = Vector2(342, 31)
 position = Vector2(280, -175)
 
 [node name="IngredientContainer2" parent="." unique_id=387531494 instance=ExtResource("2_yqjtg")]
-position = Vector2(-288, -128)
+position = Vector2(-243, 0)
 ingredient_scene = ExtResource("3_lbhrr")
 
 [node name="IngredientContainer" parent="." unique_id=1638330012 instance=ExtResource("2_yqjtg")]
-position = Vector2(-224, -128)
+position = Vector2(-243, -64)
 ingredient_scene = ExtResource("4_iywne")
 
 [node name="IngredientContainer3" parent="." unique_id=1816807359 instance=ExtResource("2_yqjtg")]
@@ -70,19 +88,20 @@ ingredient_scene = ExtResource("11_trtic")
 [node name="Trash" parent="." unique_id=399260091 instance=ExtResource("5_iywne")]
 position = Vector2(159, 153)
 
-[node name="Window" type="Sprite2D" parent="." unique_id=1781740075]
+[node name="WindowBackground" type="Sprite2D" parent="." unique_id=1781740075]
 position = Vector2(-439, -210)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_e1j6l")
 
-[node name="Customer" parent="." unique_id=759986310 node_paths=PackedStringArray("ticket_generator") instance=ExtResource("21_37s47")]
+[node name="CustomerWindow" parent="." unique_id=759986310 node_paths=PackedStringArray("ticket_generator") instance=ExtResource("21_37s47")]
 position = Vector2(-437, -210)
 ticket_generator = NodePath("../TicketGenerator")
 
 [node name="CustomerGenerator" type="Node2D" parent="." unique_id=1667417632]
 script = ExtResource("8_kvpfn")
-min_time = 3.0
-max_time = 10.0
+min_time = 20.0
+max_time = 45.0
+customer_scene = ExtResource("16_sww3w")
 customer_sprites = Array[Texture2D]([ExtResource("8_gee14"), ExtResource("12_ca42v"), ExtResource("14_rysoc"), ExtResource("16_37s47"), ExtResource("17_bt5mj"), ExtResource("18_e1j6l"), ExtResource("18_5newe")])
 
 [node name="Timer" type="Timer" parent="CustomerGenerator" unique_id=290292201]

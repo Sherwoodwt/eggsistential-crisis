@@ -4,6 +4,7 @@ extends Node2D
 @onready var spaces: Array[Node2D] = [$TicketItem, $TicketItem2, $TicketItem3, $TicketItem4]
 
 @export var sandwiches: Array[Bread]
+@export var customer: Customer
 
 var cur_spot: int
 
@@ -26,3 +27,4 @@ func complete(order_sandwiches: Array[Bread]):
 		sandwich.queue_free.call_deferred()
 	sandwiches.clear()
 	visible = false
+	SignalBus.sale_made.emit(customer)

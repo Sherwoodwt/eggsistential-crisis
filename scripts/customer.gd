@@ -1,4 +1,6 @@
 class_name Customer
-extends Node
+extends Node2D
 
-var sprite: Texture2D
+@onready var sprite: Sprite2D = $Sprite2D
+
+@export var texture: Texture2D
