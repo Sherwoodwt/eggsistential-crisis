@@ -22,9 +22,9 @@ func matches(bread: Bread) -> bool:
 	return true
 
 func toggle_prepping(prepping: bool):
-		for ing in ingredients:
-			if ing != self:
-				ing.position = ingredient_spot.position if prepping else Vector2.ZERO
+	for ing in ingredients:
+		if ing != self:
+			ing.position = ingredient_spot.position if prepping else Vector2.ZERO
 
 func _on_placed():
 	if self.ingredient is Bread:

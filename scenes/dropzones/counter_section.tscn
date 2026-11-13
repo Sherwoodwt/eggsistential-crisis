@@ -8,6 +8,7 @@ size = Vector2(32, 32)
 
 [node name="CounterSection" unique_id=1394619472 instance=ExtResource("1_071lp")]
 script = ExtResource("2_x6nun")
+draggable = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1170215392]
 shape = SubResource("RectangleShape2D_071lp")

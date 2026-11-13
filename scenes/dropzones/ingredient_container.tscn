@@ -10,6 +10,10 @@ capacity = 24
 amount = 24
 ingredient_scene = null
 
+[node name="Highlight" parent="." index="1" unique_id=624597074]
+scale = Vector2(3, 3)
+autoplay = ""
+
 [node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1352951151]
 scale = Vector2(2, 2)
 texture = ExtResource("2_v0rxn")

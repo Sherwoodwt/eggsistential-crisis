@@ -6,7 +6,7 @@ extends Node
 var sale_count := 0
 
 func _ready():
-	SignalBus.sale_made.connect(_refresh)
+	SignalBus.sale_made.connect(func(c): _refresh())
 	SignalBus.customer_expired.connect(_take_damage)
 	SignalBus.line_damage.connect(_take_damage)
 

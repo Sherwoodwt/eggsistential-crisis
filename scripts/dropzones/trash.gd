@@ -6,6 +6,7 @@ extends Dropzone
 var content: int
 
 func _ready():
+	super()
 	placed.connect(_trash)
 
 func _trash():

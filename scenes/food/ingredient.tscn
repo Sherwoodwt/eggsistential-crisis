@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://crao1uw0nkyg4"]
+
+[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_vf6ln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
+
+[node name="Ingredient" type="Area2D" unique_id=579245693]
+script = ExtResource("1_vf6ln")
+
+[node name="Timer" type="Timer" parent="." unique_id=1188006534]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288463560]
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397792290]

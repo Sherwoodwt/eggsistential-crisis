@@ -3,7 +3,7 @@ extends Node
 
 const MAX_TICKETS := 4
 
-@onready var ticket_nodes: Array[Node2D] = [$Tickets/Ticket, $Tickets/Ticket2, $Tickets/Ticket3, $Tickets/Ticket4]
+@onready var ticket_bar = $CanvasLayer/Tickets/HBoxContainer
 
 @export var ticket_prefab: PackedScene
 @export var breads: Array[PackedScene]
@@ -11,7 +11,6 @@ const MAX_TICKETS := 4
 @export var eggs: Array[PackedScene]
 @export var toppings: Array[PackedScene]
 
-var cur := 0
 var tickets: Array[Ticket]
 
 func _ready():
@@ -19,7 +18,7 @@ func _ready():
 	SignalBus.customer_expired.connect(remove_ticket)
 
 func take_order(customer: Customer):
-	if cur >= ticket_nodes.size():
+	if tickets.size() > MAX_TICKETS:
 		print("TOO MANY TICKETS")
 		return
 	var ticket := ticket_prefab.instantiate() as Ticket
@@ -28,17 +27,8 @@ func take_order(customer: Customer):
 	for i in range(sandwich_count):
 		var sandwich = random_sandwich()
 		ticket.sandwiches.append(sandwich)
-	ticket_nodes[cur].add_child(ticket)
+	ticket_bar.add_child(ticket)
 	tickets.append(ticket)
-	cur += 1
-	set_current_visuals()
-	
-func set_current_visuals():
-	cur = 0
-	for ticket in tickets:
-		ticket.reparent(ticket_nodes[cur])
-		ticket.position = Vector2.ZERO
-		cur += 1
 
 func random_sandwich() -> Bread:
 	var bread = breads.pick_random().instantiate() as Bread
@@ -55,9 +45,8 @@ func random_sandwich() -> Bread:
 func has_room() -> bool:
 	return tickets.size() < MAX_TICKETS
 
-func remove_ticket(ticket: Ticket):
-	var i = tickets.find(ticket)
+func remove_ticket(customer: Customer):
+	var i = tickets.find_custom(func(t): return t.customer == customer)
+	tickets[i].queue_free.call_deferred()
 	tickets.remove_at(i)
 	print("deleting ticket")
-	ticket.queue_free.call_deferred()
-	set_current_visuals()

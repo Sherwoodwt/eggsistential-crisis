@@ -8,8 +8,15 @@ signal moved # item moved away from this zone
 
 @onready var highlight: AnimatedSprite2D = $Highlight
 
+@export var draggable: bool
+
+var disabled: bool
 var dragging: bool
 var ingredient: Ingredient
+var just_placed: bool
+
+func _ready():
+	placed.connect(func(): just_placed = true)
 
 func can_place(ingredient: Ingredient) -> bool:
 	return true
@@ -30,10 +37,15 @@ func point_overlap(point: Vector2) -> Dropzone:
 	return results[result]["collider"] as Dropzone
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("grab") and not dragging and ingredient:
+	if disabled: return
+	if Input.is_action_just_pressed("click") and not dragging and ingredient:
+		#if just_placed:
+			#just_placed = false
+			#return
 		dragging = true
 		ingredient.global_position = get_global_mouse_position()
-		ingredient.sprite.z_index += 10
+		ingredient.sprite.move_to_front()
+		ingredient.sprite.z_index = 10
 		ingredient.sprite.texture = ingredient.hover_sprite
 		grabbed.emit()
 
@@ -42,13 +54,20 @@ func _physics_process(delta: float) -> void:
 		ingredient.global_position = get_global_mouse_position()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_released("grab") and dragging:
-		ingredient.sprite.z_index -= 10
+	if disabled: return
+	var is_drop = Input.is_action_just_released("click") if draggable \
+		else Input.is_action_just_pressed("click")
+	var is_deselect = Input.is_action_just_pressed("deselect")
+	if is_drop and dragging:
 		ingredient.sprite.texture = ingredient.placed_sprite
+		ingredient.sprite.z_index = 0
 		dragging = false
 		var dropzone = point_overlap(get_global_mouse_position())
 		if dropzone and dropzone.can_place(ingredient):
+			if !draggable:
+				dragging = true
 			ingredient.reparent(dropzone)
+			ingredient.scale = dropzone.scale
 			ingredient.global_position = dropzone.global_position
 			dropzone.set_ingredient(ingredient)
 			dropzone.placed.emit()
@@ -56,3 +75,8 @@ func _input(event: InputEvent) -> void:
 		else:
 			ingredient.global_position = global_position
 			dropped.emit()
+	elif is_deselect and dragging:
+		dragging = false
+		ingredient.global_position = global_position
+		ingredient.sprite.z_index = 0
+		dropped.emit()

@@ -5,3 +5,4 @@
 
 [node name="PrepZone" unique_id=1394619472 instance=ExtResource("1_3o3fd")]
 script = ExtResource("2_jd8ga")
+draggable = true

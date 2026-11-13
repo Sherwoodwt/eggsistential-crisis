@@ -16,6 +16,7 @@ func set_ingredient(ingredient: Ingredient):
 		self.ingredient = ingredient
 
 func _ready():
+	super()
 	grabbed.connect(_on_grabbed)
 	moved.connect(_on_moved)
 	placed.connect(_on_placed)

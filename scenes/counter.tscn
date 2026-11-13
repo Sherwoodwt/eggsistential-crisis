@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg1x8p55hr3n6" path="res://scripts/counter.gd" id="1_8e5hq"]
 [ext_resource type="PackedScene" uid="uid://b6aqutmk276wx" path="res://scenes/dropzones/counter_section.tscn" id="1_sc7mx"]
+[ext_resource type="PackedScene" uid="uid://bxr8gm7vogbyn" path="res://scenes/ticket.tscn" id="3_laq1u"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 
@@ -36,3 +37,12 @@ position = Vector2(16, 16)
 
 [node name="CounterSection8" parent="." unique_id=1396435418 instance=ExtResource("1_sc7mx")]
 position = Vector2(48, 16)
+
+[node name="Ticket" parent="." unique_id=1687168901 instance=ExtResource("3_laq1u")]
+visible = false
+offset_left = -92.0
+offset_top = -162.0
+offset_right = 36.0
+offset_bottom = -34.0
+scale = Vector2(1, 1)
+for_order = false

@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://ci0um4xxfcfj5"]
 
 [ext_resource type="PackedScene" uid="uid://nxuakkuveimf" path="res://scenes/clickzone.tscn" id="1_qxk7m"]
+[ext_resource type="Script" uid="uid://cicm7rucrgogh" path="res://scripts/cashier.gd" id="2_xw6i5"]
 [ext_resource type="Texture2D" uid="uid://cbep1q6qwxve3" path="res://sprites/cashier.png" id="2_yvugg"]
 
 [node name="Cashier" unique_id=759986310 instance=ExtResource("1_qxk7m")]
+visible = true
+script = ExtResource("2_xw6i5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=817496378]
 texture = ExtResource("2_yvugg")

@@ -27,8 +27,8 @@ scale = Vector2(5, 5)
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="5" unique_id=1675701640]
 
 [node name="LineCount" type="Label" parent="CanvasLayer" index="0" unique_id=686081358]
-offset_left = 101.0
+offset_left = 44.0
 offset_top = 250.0
-offset_right = 176.0
+offset_right = 119.0
 offset_bottom = 273.0
 text = "IN LINE: 0"

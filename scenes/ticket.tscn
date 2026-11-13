@@ -1,33 +1,71 @@
-[gd_scene format=3 uid="uid://dt10gjauxlf6l"]
+[gd_scene format=3 uid="uid://bxr8gm7vogbyn"]
 
 [ext_resource type="Script" uid="uid://cs3eg1so6k185" path="res://scripts/ticket.gd" id="1_7yqn5"]
 [ext_resource type="Texture2D" uid="uid://m7rbpw6360u4" path="res://sprites/ticket.png" id="1_krxyo"]
-[ext_resource type="Texture2D" uid="uid://cfnmmar0qyfon" path="res://sprites/empty_health.png" id="2_o7y5v"]
-[ext_resource type="Texture2D" uid="uid://brmov1wu88jgi" path="res://sprites/full_health.png" id="3_wp4qn"]
+[ext_resource type="PackedScene" uid="uid://23knctddjng5" path="res://scenes/highlight.tscn" id="3_rn5ye"]
 
-[node name="Ticket" type="Node2D" unique_id=321371633]
-script = ExtResource("1_7yqn5")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1520167492]
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1111492866]
-offset_right = 64.0
-offset_bottom = 192.0
-fill_mode = 3
-texture_under = ExtResource("2_o7y5v")
-texture_progress = ExtResource("3_wp4qn")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=628162068]
+[node name="Ticket" type="TextureRect" unique_id=1687168901]
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(2, 2)
+size_flags_vertical = 3
 texture = ExtResource("1_krxyo")
+expand_mode = 2
+script = ExtResource("1_7yqn5")
+for_order = true
 
-[node name="TicketItem" type="Node2D" parent="." unique_id=1059267092]
-position = Vector2(-30, -48)
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=567248607]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21900001
+anchor_top = 0.062000003
+anchor_right = 0.781
+anchor_bottom = 0.93700004
+offset_left = -0.032001495
+offset_top = 0.06399965
+offset_right = 0.03199768
+offset_bottom = 0.06399536
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
-[node name="TicketItem2" type="Node2D" parent="." unique_id=1391579527]
-position = Vector2(-10, -48)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1630492648]
+layout_mode = 2
 
-[node name="TicketItem3" type="Node2D" parent="." unique_id=1073232841]
-position = Vector2(10, -48)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1858429356]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -12
+alignment = 2
 
-[node name="TicketItem4" type="Node2D" parent="." unique_id=1068344990]
-position = Vector2(30, -48)
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1264319732]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -12
+alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1352098297]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -12
+alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2105785285]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -12
+alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=893425428]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -12
+alignment = 2
+
+[node name="Highlight" parent="." unique_id=624597074 instance=ExtResource("3_rn5ye")]
+visible = false
+position = Vector2(69, 66)
+scale = Vector2(5, 5)

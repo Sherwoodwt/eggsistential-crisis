@@ -11,24 +11,30 @@ func can_place(ing: Ingredient) -> bool:
 	return false
 
 func _ready():
+	super()
 	ingredient = ingredient_scene.instantiate() as Ingredient
 	sprite.texture = ingredient.full_container_sprite
 	
 	ingredient.visible = false
-	grabbed.connect(create_ingredient)
+	grabbed.connect(pickup_ingredient)
 	moved.connect(on_moved)
 	dropped.connect(on_dropped)
 	add_child(ingredient)
 
-func create_ingredient():
+func pickup_ingredient():
 	ingredient.visible = true
+	highlight.visible = true
 
 func on_moved():
 	amount -= 1
 	if amount >= 0:
-		ingredient = ingredient_scene.instantiate()
-		ingredient.visible = false
+		ingredient = ingredient_scene.instantiate() as Ingredient
 		add_child(ingredient)
+		if draggable:
+			ingredient.visible = false
+			highlight.visible = false
+		else:
+			ingredient.sprite.z_index = 10 # still being carried
 	var ratio = float(amount) / float(capacity)
 	if ratio <= .5:
 		sprite.texture = ingredient.half_container_sprite
@@ -37,3 +43,4 @@ func on_moved():
 
 func on_dropped():
 	ingredient.visible = false
+	highlight.visible = false

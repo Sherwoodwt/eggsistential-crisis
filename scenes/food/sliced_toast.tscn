@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dyxkf5exs2bij"]
 
 [ext_resource type="Script" uid="uid://bqcyyu0587p8t" path="res://scripts/bread.gd" id="1_47wlh"]
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_a8a30"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_n8mpr"]
 [ext_resource type="Texture2D" uid="uid://b7y53bpqruapb" path="res://sprites/sliced_toast.png" id="2_ts1dx"]
 [ext_resource type="PackedScene" uid="uid://72a47y5ykqwp" path="res://scenes/food/burnt_toast.tscn" id="3_47wlh"]
@@ -16,8 +17,7 @@ metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
 size = Vector2(64, 34)
 
-[node name="SlicedToast" type="Area2D" unique_id=1648100404]
-input_pickable = false
+[node name="SlicedToast" unique_id=579245693 instance=ExtResource("1_a8a30")]
 script = ExtResource("1_47wlh")
 cook_methods = Array[ExtResource("2_n8mpr")]([SubResource("Resource_o421x")])
 id = "sliced_toast"
@@ -26,16 +26,11 @@ hover_sprite = ExtResource("4_a8a30")
 placed_sprite = ExtResource("2_ts1dx")
 icon_sprite = ExtResource("4_a8a30")
 
-[node name="Timer" type="Timer" parent="." unique_id=564188749]
-one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1031367461]
-position = Vector2(0.5, 0)
+[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
 shape = SubResource("RectangleShape2D_5yv1l")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512631976]
-z_index = 1
+[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
 texture = ExtResource("2_ts1dx")
 
-[node name="ingredient_spot" type="Node2D" parent="." unique_id=1320346795]
+[node name="ingredient_spot" type="Node2D" parent="." index="3" unique_id=1281100279]
 position = Vector2(-17, 0)

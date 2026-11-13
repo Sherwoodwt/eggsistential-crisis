@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b25rm10ldtn16"]
 
-[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_u18tg"]
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_plo38"]
 [ext_resource type="Texture2D" uid="uid://btp6xhmhe6isg" path="res://sprites/mayo_spoon.png" id="2_325hs"]
 [ext_resource type="Texture2D" uid="uid://blunue4ype6av" path="res://sprites/mayo_container_full.png" id="2_hksnw"]
 [ext_resource type="Texture2D" uid="uid://8n3gw112q54l" path="res://sprites/mayo.png" id="2_yo0g6"]
@@ -10,8 +10,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]
 radius = 11.0
 
-[node name="Mayo" type="Area2D" unique_id=1657521017]
-script = ExtResource("1_u18tg")
+[node name="Mayo" unique_id=579245693 instance=ExtResource("1_plo38")]
 id = "mayo"
 is_edible = true
 is_sauce = true
@@ -21,15 +20,9 @@ icon_sprite = ExtResource("2_yo0g6")
 full_container_sprite = ExtResource("2_hksnw")
 half_container_sprite = ExtResource("5_plo38")
 last_container_sprite = ExtResource("6_22loq")
-metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
-[node name="Timer" type="Timer" parent="." unique_id=1915532320]
-one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415707753]
-position = Vector2(1, 0.5)
+[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
 shape = SubResource("CapsuleShape2D_5yv1l")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=772893645]
-z_index = 1
-texture = ExtResource("2_hksnw")
+[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+texture = ExtResource("2_yo0g6")

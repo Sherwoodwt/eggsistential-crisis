@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://iol6wwxsgbtg"]
 
-[ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_wqibq"]
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_t62lf"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_6phm8"]
 [ext_resource type="Texture2D" uid="uid://gverx1r5lsc0" path="res://sprites/egg.png" id="3_vh25c"]
 [ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/fried_egg.tscn" id="3_ww3ow"]
@@ -19,8 +19,7 @@ metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]
 radius = 11.0
 
-[node name="Egg" type="Area2D" unique_id=1657521017]
-script = ExtResource("1_wqibq")
+[node name="Egg" unique_id=579245693 instance=ExtResource("1_t62lf")]
 cook_methods = Array[ExtResource("2_6phm8")]([SubResource("Resource_l64r8")])
 id = "egg"
 hover_sprite = ExtResource("3_vh25c")
@@ -29,15 +28,9 @@ icon_sprite = ExtResource("3_vh25c")
 full_container_sprite = ExtResource("6_t62lf")
 half_container_sprite = ExtResource("7_omj5l")
 last_container_sprite = ExtResource("8_7sq1t")
-metadata/_custom_type_script = "uid://ci0fwb2ooxklo"
 
-[node name="Timer" type="Timer" parent="." unique_id=1915532320]
-one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415707753]
-position = Vector2(1, 0.5)
+[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
 shape = SubResource("CapsuleShape2D_5yv1l")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=772893645]
-z_index = 1
+[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
 texture = ExtResource("3_vh25c")
