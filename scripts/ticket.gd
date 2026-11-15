@@ -1,27 +1,23 @@
 class_name Ticket
 extends Control
 
-@onready var rows: Array[Node] = $MarginContainer/VBoxContainer.get_children()
+@onready var items: Node = $MarginContainer/VBoxContainer
 @onready var highlight: AnimatedSprite2D = $Highlight
 
+@export var ticket_item_scene: PackedScene
 @export var for_order: bool
-@export var sandwiches: Array[Bread]
+@export var sandwich: Bread
 @export var customer: Customer
 
 func _ready():
 	gui_input.connect(_handle_gui_input)
 	SignalBus.counter_updated.connect(check_ready)
 	SignalBus.sale_made.connect(complete)
-	var cur := 0
-	for sandwich in sandwiches:
+	# store sandwich in ticket and hide it
+	if sandwich:
 		add_child(sandwich)
 		sandwich.visible = false
-		for i in range(sandwich.ingredients.size()):
-			var sprite = TextureRect.new()
-			sprite.texture = sandwich.ingredients[sandwich.ingredients.size() - 1 - i].icon_sprite
-			sprite.expand_mode = TextureRect.EXPAND_FIT_WIDTH
-			rows[cur].add_child(sprite)
-		cur += 1
+		set_sandwich(sandwich)
 
 func _handle_gui_input(event: InputEvent):
 	if not highlight.visible: # only when ready to go
@@ -30,30 +26,24 @@ func _handle_gui_input(event: InputEvent):
 		highlight.hide()
 		SignalBus.send_ticket.emit(self)
 
-# used for ingredient list
 func set_sandwich(sandwich: Bread):
-	for i in range(sandwich.ingredients.size()):
-		var sprite = TextureRect.new()
-		sprite.texture = sandwich.ingredients[sandwich.ingredients.size() - 1 - i].icon_sprite
-		sprite.expand_mode = TextureRect.EXPAND_FIT_WIDTH
-		rows[0].add_child(sprite)
+	for i in range(sandwich.ingredients.size() - 1, -1, -1): # backwards index
+		var item := ticket_item_scene.instantiate() as TicketItem
+		item.ingredient = sandwich.ingredients[i]
+		items.add_child(item)
 
 # used for ingredient list
 func clear_sandwich():
-	for child in rows[0].get_children():
-		rows[0].remove_child(child)
+	for item in items.get_children():
+		item.queue_free()
 
 func complete(customer: Customer):
 	if self.customer == customer:
 		print("ticket complete")
-		sandwiches.clear()
+		sandwich.queue_free()
 		visible = false
 
 func check_ready(sandwiches: Array[Bread]):
 	if !for_order: return
-	var used: Array[Bread] = []
-	for req_sandwich in self.sandwiches:
-		for sandwich in sandwiches:
-			if not used.has(sandwich) and req_sandwich.matches(sandwich):
-				used.append(sandwich)
-	highlight.visible = used.size() == self.sandwiches.size()
+	if sandwiches.any(func(s): s.matches(sandwich)):
+		highlight.visible = true

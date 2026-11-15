@@ -7,8 +7,8 @@ extends Dropzone
 @export var id: String
 
 func can_place(ing: Ingredient) -> bool:
-	if ing is Bread and (ing as Bread).ingredients.size() > 1:
-		return false
+	if ing.is_edible and self.ingredient is Bread:
+		return true
 	var index = ing.cook_methods.find_custom(func(m): return m.cooker == id)
 	return !ingredient and index >= 0
 
@@ -43,10 +43,13 @@ func done_cookin(result: Ingredient):
 	highlight.visible = result.is_edible
 
 func set_ingredient(ingredient: Ingredient):
-	self.ingredient = ingredient
-	for connection in ingredient.done_cookin.get_connections():
-		ingredient.done_cookin.disconnect(connection["callable"])
-	ingredient.done_cookin.connect(done_cookin)
-	ingredient.cook(self)
-	progress.max_value = ingredient.timer.wait_time
-	smoke.emitting = true
+	if self.ingredient is Bread:
+		(self.ingredient as Bread).add_ingredient(ingredient)
+	else:
+		self.ingredient = ingredient
+		for connection in ingredient.done_cookin.get_connections():
+			ingredient.done_cookin.disconnect(connection["callable"])
+		ingredient.done_cookin.connect(done_cookin)
+		ingredient.cook(self)
+		progress.max_value = ingredient.timer.wait_time
+		smoke.emitting = true

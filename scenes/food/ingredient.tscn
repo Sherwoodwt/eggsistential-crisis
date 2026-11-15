@@ -7,10 +7,10 @@
 [node name="Ingredient" type="Area2D" unique_id=579245693]
 script = ExtResource("1_vf6ln")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397792290]
+
 [node name="Timer" type="Timer" parent="." unique_id=1188006534]
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288463560]
 shape = SubResource("RectangleShape2D_5yv1l")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397792290]

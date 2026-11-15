@@ -8,6 +8,7 @@ radius = 17.029387
 
 [node name="BurntEgg" unique_id=579245693 instance=ExtResource("1_odwr8")]
 id = "burnt_egg"
+label = "Burnt Egg"
 hover_sprite = ExtResource("2_odwr8")
 placed_sprite = ExtResource("2_odwr8")
 icon_sprite = ExtResource("2_odwr8")

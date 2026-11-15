@@ -12,6 +12,7 @@ radius = 11.0
 
 [node name="Mayo" unique_id=579245693 instance=ExtResource("1_plo38")]
 id = "mayo"
+label = "Mayo"
 is_edible = true
 is_sauce = true
 hover_sprite = ExtResource("2_325hs")

@@ -26,6 +26,11 @@ func toggle_prepping(prepping: bool):
 		if ing != self:
 			ing.position = ingredient_spot.position if prepping else Vector2.ZERO
 
+func add_ingredient(ingredient: Ingredient):
+	ingredients.push_back(ingredient)
+	ingredient.reparent(ingredient_spot)
+	ingredient.sprite.z_index = 1
+
 func _on_placed():
 	if self.ingredient is Bread:
 		var bread = self.ingredient as Bread

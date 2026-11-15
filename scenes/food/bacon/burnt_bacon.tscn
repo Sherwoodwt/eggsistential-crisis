@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://brnq8i2pxx2t7"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_v05wh"]
+[ext_resource type="Texture2D" uid="uid://umlfw3dny0nl" path="res://sprites/burnt_bacon.png" id="2_vif5l"]
+
+[node name="BurntBacon" unique_id=579245693 instance=ExtResource("1_v05wh")]
+id = "burnt_bacon"
+label = "Burnt Bacon"
+hover_sprite = ExtResource("2_vif5l")
+placed_sprite = ExtResource("2_vif5l")
+icon_sprite = ExtResource("2_vif5l")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+texture = ExtResource("2_vif5l")

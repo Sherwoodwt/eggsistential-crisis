@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_otahj"]
 [ext_resource type="Texture2D" uid="uid://cl5a6lflsh3rl" path="res://sprites/sliced_bread.png" id="2_a34ib"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_o421x"]
-[ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_toast.tscn" id="3_7ix2g"]
+[ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_bread/sliced_toast.tscn" id="3_7ix2g"]
 [ext_resource type="Texture2D" uid="uid://dt8ugc7y4knpd" path="res://sprites/sliced_bread_icon.png" id="5_o421x"]
 [ext_resource type="Texture2D" uid="uid://bfvk7f6c62ysd" path="res://sprites/bread_container_full.png" id="6_otahj"]
 [ext_resource type="Texture2D" uid="uid://begtpdh5ljpur" path="res://sprites/bread_container_half.png" id="7_kknea"]
@@ -24,6 +24,7 @@ size = Vector2(34, 29)
 script = ExtResource("1_g5umn")
 cook_methods = Array[ExtResource("2_o421x")]([SubResource("Resource_lgeo7")])
 id = "sliced_bread"
+label = "Sliced Bread"
 is_edible = true
 hover_sprite = ExtResource("5_o421x")
 placed_sprite = ExtResource("2_a34ib")
@@ -32,11 +33,11 @@ full_container_sprite = ExtResource("6_otahj")
 half_container_sprite = ExtResource("7_kknea")
 last_container_sprite = ExtResource("8_cleni")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
-shape = SubResource("RectangleShape2D_g5umn")
-
-[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("5_o421x")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288463560]
+shape = SubResource("RectangleShape2D_g5umn")
 
 [node name="ingredient_spot" type="Node2D" parent="." index="3" unique_id=1631052587]
 position = Vector2(-17, 0)

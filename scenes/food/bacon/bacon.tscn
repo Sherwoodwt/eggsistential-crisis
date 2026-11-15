@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c531njn0bcka7"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_klxne"]
+[ext_resource type="Texture2D" uid="uid://b314dtd65x4x1" path="res://sprites/bacon.png" id="2_syvfo"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_xyt1r"]
+[ext_resource type="PackedScene" uid="uid://ocga3p5fnsqb" path="res://scenes/food/bacon/crispy_bacon.tscn" id="3_mrrqu"]
+
+[sub_resource type="Resource" id="Resource_movi1"]
+script = ExtResource("2_xyt1r")
+cooked_ingredient = ExtResource("3_mrrqu")
+cooker = "stove"
+cook_time = 6.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="Bacon" unique_id=579245693 instance=ExtResource("1_klxne")]
+cook_methods = Array[ExtResource("2_xyt1r")]([SubResource("Resource_movi1")])
+id = "bacon"
+label = "Bacon"
+is_edible = true
+hover_sprite = ExtResource("2_syvfo")
+placed_sprite = ExtResource("2_syvfo")
+icon_sprite = ExtResource("2_syvfo")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+texture = ExtResource("2_syvfo")

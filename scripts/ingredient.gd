@@ -8,6 +8,7 @@ signal done_cookin(ingredient: Ingredient)
 
 @export var cook_methods: Array[CookMethod]
 @export var id: String
+@export var label: String
 @export var is_edible: bool
 @export var is_sauce: bool
 

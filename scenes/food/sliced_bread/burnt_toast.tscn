@@ -9,6 +9,7 @@ size = Vector2(64, 32)
 
 [node name="BurntToast" unique_id=579245693 instance=ExtResource("1_o4fji")]
 id = "burnt_toast"
+label = "Burnt Toast"
 hover_sprite = ExtResource("3_76rf7")
 placed_sprite = ExtResource("3_o4fji")
 icon_sprite = ExtResource("3_76rf7")

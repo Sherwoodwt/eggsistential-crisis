@@ -11,38 +11,30 @@ script = ExtResource("1_8e5hq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=756012200]
 modulate = Color(0.8047426, 0.80474263, 0.8047426, 1)
-scale = Vector2(128, 64)
+position = Vector2(0, -16)
+scale = Vector2(256, 64)
 texture = SubResource("CanvasTexture_5yv1l")
 
 [node name="CounterSection" parent="." unique_id=1831347061 instance=ExtResource("1_sc7mx")]
-position = Vector2(-48, -16)
+position = Vector2(-96, -16)
+scale = Vector2(2, 2)
 
 [node name="CounterSection2" parent="." unique_id=1156789945 instance=ExtResource("1_sc7mx")]
-position = Vector2(-16, -16)
+position = Vector2(-32, -16)
+scale = Vector2(2, 2)
 
 [node name="CounterSection3" parent="." unique_id=1133098559 instance=ExtResource("1_sc7mx")]
-position = Vector2(16, -16)
+position = Vector2(32, -16)
+scale = Vector2(2, 2)
 
 [node name="CounterSection4" parent="." unique_id=1284078108 instance=ExtResource("1_sc7mx")]
-position = Vector2(48, -16)
-
-[node name="CounterSection5" parent="." unique_id=1687920585 instance=ExtResource("1_sc7mx")]
-position = Vector2(-48, 16)
-
-[node name="CounterSection6" parent="." unique_id=1221443208 instance=ExtResource("1_sc7mx")]
-position = Vector2(-16, 16)
-
-[node name="CounterSection7" parent="." unique_id=289317908 instance=ExtResource("1_sc7mx")]
-position = Vector2(16, 16)
-
-[node name="CounterSection8" parent="." unique_id=1396435418 instance=ExtResource("1_sc7mx")]
-position = Vector2(48, 16)
+position = Vector2(96, -16)
+scale = Vector2(2, 2)
 
 [node name="Ticket" parent="." unique_id=1687168901 instance=ExtResource("3_laq1u")]
 visible = false
-offset_left = -92.0
-offset_top = -162.0
-offset_right = 36.0
-offset_bottom = -34.0
-scale = Vector2(1, 1)
+offset_left = -129.0
+offset_top = -181.0
+offset_right = 16.0
+offset_bottom = -53.0
 for_order = false

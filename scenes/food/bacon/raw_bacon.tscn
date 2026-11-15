@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ddsnxiwns2guq"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_c48bf"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_qys55"]
+[ext_resource type="Texture2D" uid="uid://ks5e6ftfibmr" path="res://sprites/raw_bacon.png" id="2_sr1jq"]
+[ext_resource type="PackedScene" uid="uid://c531njn0bcka7" path="res://scenes/food/bacon/bacon.tscn" id="3_3pcfo"]
+[ext_resource type="Texture2D" uid="uid://bcpoi54rwokym" path="res://sprites/bacon_container_full.png" id="3_qys55"]
+[ext_resource type="Texture2D" uid="uid://dr1yfrwcbnt31" path="res://sprites/bacon_container_half.png" id="4_3pcfo"]
+[ext_resource type="Texture2D" uid="uid://crcm43gw81wj" path="res://sprites/bacon_container_last.png" id="5_movi1"]
+
+[sub_resource type="Resource" id="Resource_t64xj"]
+script = ExtResource("2_qys55")
+cooked_ingredient = ExtResource("3_3pcfo")
+cooker = "stove"
+cook_time = 12.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="RawBacon" unique_id=579245693 instance=ExtResource("1_c48bf")]
+cook_methods = Array[ExtResource("2_qys55")]([SubResource("Resource_t64xj")])
+id = "raw_bacon"
+label = "Raw Bacon"
+hover_sprite = ExtResource("2_sr1jq")
+placed_sprite = ExtResource("2_sr1jq")
+icon_sprite = ExtResource("2_sr1jq")
+full_container_sprite = ExtResource("3_qys55")
+half_container_sprite = ExtResource("4_3pcfo")
+last_container_sprite = ExtResource("5_movi1")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+texture = ExtResource("2_sr1jq")

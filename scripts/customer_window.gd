@@ -8,6 +8,7 @@ const LINE_MOVED_AMOUNT := 30.0
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var highlight: AnimatedSprite2D = $Highlight
 @onready var ui_linecount = $CanvasLayer/LineCount
+@onready var ui_line_pressure: TextureProgressBar = $CanvasLayer/TextureProgressBar
 
 @export var ticket_generator: TicketGenerator
 
@@ -16,6 +17,7 @@ var line: Array[Customer]
 func _ready():
 	super()
 	timer.timeout.connect(_take_damage)
+	ui_line_pressure.max_value = timer.wait_time
 	SignalBus.new_customer.connect(_add_to_line)
 	SignalBus.customer_expired.connect(_remove_customer)
 	SignalBus.sale_made.connect(_remove_customer)
@@ -25,10 +27,19 @@ func do_action():
 		highlight.hide()
 		ticket_generator.take_order(line[0])
 		line.remove_at(0)
-		timer.wait_time += LINE_MOVED_AMOUNT
+		timer.start(timer.time_left + LINE_MOVED_AMOUNT)
 		_refresh()
 
+func _process(delta: float) -> void:
+	if timer.time_left > 0:
+		ui_line_pressure.show()
+		ui_line_pressure.value = timer.time_left
+	else:
+		ui_line_pressure.hide()
+
 func _add_to_line(customer: Customer):
+	if timer.time_left == 0:
+		timer.start()
 	line.append(customer)
 	customer_spot.add_child(customer)
 	_refresh()

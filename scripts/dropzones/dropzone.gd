@@ -74,6 +74,7 @@ func _input(event: InputEvent) -> void:
 			moved.emit()
 		else:
 			ingredient.global_position = global_position
+			ingredient.sprite.z_index = 0
 			dropped.emit()
 	elif is_deselect and dragging:
 		dragging = false

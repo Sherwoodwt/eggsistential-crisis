@@ -23,13 +23,11 @@ func take_order(customer: Customer):
 		return
 	var ticket := ticket_prefab.instantiate() as Ticket
 	ticket.customer = customer
-	var sandwich_count = randi_range(1, 4)
-	for i in range(sandwich_count):
-		var sandwich = random_sandwich()
-		ticket.sandwiches.append(sandwich)
+	ticket.sandwich = random_sandwich()
 	ticket_bar.add_child(ticket)
 	tickets.append(ticket)
 
+# returns sandwich but doesn't add it to tree
 func random_sandwich() -> Bread:
 	var bread = breads.pick_random().instantiate() as Bread
 	if randf() > .5:

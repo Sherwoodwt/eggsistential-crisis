@@ -5,17 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://cxcgtxhkrj6np" path="res://scenes/prep_area.tscn" id="2_p57ef"]
 [ext_resource type="Texture2D" uid="uid://f0vt5fuf4be4" path="res://sprites/empty_rating.png" id="2_sww3w"]
 [ext_resource type="PackedScene" uid="uid://bhuknbsq0bggq" path="res://scenes/dropzones/ingredient_container.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://iol6wwxsgbtg" path="res://scenes/food/egg.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://iol6wwxsgbtg" path="res://scenes/food/egg/egg.tscn" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://eqex7qjox75q" path="res://sprites/full_rating.png" id="3_suyxu"]
-[ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread/sliced_bread.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://dnctu2rg73guj" path="res://scenes/dropzones/trash.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bbiey0godthw7" path="res://scenes/counter.tscn" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://mvb5org2cu4a" path="res://sprites/witch.png" id="8_gee14"]
 [ext_resource type="Script" uid="uid://dttpywie2j1cp" path="res://scripts/customer_generator.gd" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bxr8gm7vogbyn" path="res://scenes/ticket.tscn" id="9_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_toast.tscn" id="10_dinhu"]
+[ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_bread/sliced_toast.tscn" id="10_dinhu"]
+[ext_resource type="PackedScene" uid="uid://ddsnxiwns2guq" path="res://scenes/food/bacon/raw_bacon.tscn" id="10_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://8ygkvsflm5gs" path="res://sprites/window.png" id="11_e1j6l"]
-[ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/fried_egg.tscn" id="11_kvuet"]
+[ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/egg/fried_egg.tscn" id="11_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b25rm10ldtn16" path="res://scenes/food/mayo.tscn" id="11_trtic"]
 [ext_resource type="Texture2D" uid="uid://bjkqojhx7iveh" path="res://sprites/monk.png" id="12_ca42v"]
 [ext_resource type="PackedScene" uid="uid://2i3rfon2nkok" path="res://scenes/food/tomato.tscn" id="13_ir15t"]
@@ -29,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://bekijt06egs6s" path="res://scenes/customer_window.tscn" id="21_37s47"]
 [ext_resource type="Script" uid="uid://bkh3pltca8hmv" path="res://scripts/ticket_generator.gd" id="21_bt5mj"]
 [ext_resource type="Script" uid="uid://bvku728dbdxyy" path="res://scripts/order_window.gd" id="28_suyxu"]
+[ext_resource type="PackedScene" uid="uid://c531njn0bcka7" path="res://scenes/food/bacon/bacon.tscn" id="30_wljb1"]
+[ext_resource type="PackedScene" uid="uid://ocga3p5fnsqb" path="res://scenes/food/bacon/crispy_bacon.tscn" id="31_v2yb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
 size = Vector2(108.666664, 100.66667)
@@ -37,6 +40,7 @@ size = Vector2(108.666664, 100.66667)
 
 [node name="Game" type="Node2D" unique_id=1126588430]
 script = ExtResource("1_pl11u")
+metadata/_edit_horizontal_guides_ = [-36.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1040675970]
 
@@ -75,13 +79,13 @@ position = Vector2(384.99997, 144)
 scale = Vector2(1.4, 1.4)
 
 [node name="WindowBackground2" type="Sprite2D" parent="." unique_id=1851556016]
-position = Vector2(292, -210)
-scale = Vector2(1.5, 1.5)
+position = Vector2(418.88, -166.12)
+scale = Vector2(2.295, 2.295)
 texture = ExtResource("11_e1j6l")
 
 [node name="OrderWindow" type="Area2D" parent="." unique_id=863373433]
-position = Vector2(292, -210)
-scale = Vector2(1.5, 1.5)
+position = Vector2(418.88, -166.12)
+scale = Vector2(2.295, 2.295)
 script = ExtResource("28_suyxu")
 
 [node name="Timer" type="Timer" parent="OrderWindow" unique_id=808745918]
@@ -93,10 +97,14 @@ shape = SubResource("RectangleShape2D_5yv1l")
 [node name="Sprite2D" type="Sprite2D" parent="OrderWindow" unique_id=1841516694]
 
 [node name="Counter" parent="." unique_id=490754155 instance=ExtResource("7_u5sy4")]
-position = Vector2(266, -82)
+position = Vector2(419, -59)
 
 [node name="IngredientContainer2" parent="." unique_id=387531494 instance=ExtResource("2_yqjtg")]
 position = Vector2(-397, 37)
+ingredient_scene = ExtResource("10_sgl2t")
+
+[node name="IngredientContainer5" parent="." unique_id=1394619472 instance=ExtResource("2_yqjtg")]
+position = Vector2(-397, 101)
 ingredient_scene = ExtResource("3_lbhrr")
 
 [node name="IngredientContainer" parent="." unique_id=1638330012 instance=ExtResource("2_yqjtg")]
@@ -141,7 +149,7 @@ ticket_prefab = ExtResource("9_0tnpc")
 breads = Array[PackedScene]([ExtResource("4_iywne"), ExtResource("10_dinhu")])
 sauces = Array[PackedScene]([ExtResource("11_trtic")])
 eggs = Array[PackedScene]([ExtResource("11_kvuet")])
-toppings = Array[PackedScene]([ExtResource("13_ir15t")])
+toppings = Array[PackedScene]([ExtResource("13_ir15t"), ExtResource("30_wljb1"), ExtResource("31_v2yb1")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TicketGenerator" unique_id=2078256576]
 
@@ -171,9 +179,8 @@ anchor_right = 1.0
 offset_right = -2.0
 offset_bottom = 186.0
 grow_horizontal = 2
-theme_override_constants/separation = -64
 alignment = 2
 
 [node name="Cashier" parent="." unique_id=1893743003 node_paths=PackedStringArray("counter") instance=ExtResource("15_ir15t")]
-position = Vector2(363, -82)
+position = Vector2(242, -63)
 counter = NodePath("../Counter")
