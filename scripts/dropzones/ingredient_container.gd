@@ -30,11 +30,8 @@ func on_moved():
 	if amount >= 0:
 		ingredient = ingredient_scene.instantiate() as Ingredient
 		add_child(ingredient)
-		if draggable:
-			ingredient.visible = false
-			highlight.visible = false
-		else:
-			ingredient.sprite.z_index = 10 # still being carried
+		ingredient.visible = false
+		highlight.visible = false
 	var ratio = float(amount) / float(capacity)
 	if ratio <= .5:
 		sprite.texture = ingredient.half_container_sprite

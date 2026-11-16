@@ -9,8 +9,6 @@ func _ready():
 	super()
 	placed.connect(_on_placed)
 	moved.connect(_on_moved)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
 
 func can_place(ingredient: Ingredient) -> bool:
 	return ingredient is Bread and self.ingredient == null
@@ -27,10 +25,12 @@ func _on_moved():
 	ingredient = null
 
 func _on_mouse_entered():
+	super()
 	if ingredient:
 		ingredient_list.show()
 		ingredient_list.set_sandwich(ingredient)
 
 func _on_mouse_exited():
+	super()
 	ingredient_list.hide()
 	ingredient_list.clear_sandwich()

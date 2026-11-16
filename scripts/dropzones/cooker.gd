@@ -4,8 +4,6 @@ extends Dropzone
 @onready var smoke: GPUParticles2D = $GPUParticles2D
 @onready var progress: TextureProgressBar = $TextureProgressBar
 
-@export var id: String
-
 func can_place(ing: Ingredient) -> bool:
 	if ing.is_edible and self.ingredient is Bread:
 		return true
@@ -42,14 +40,14 @@ func done_cookin(result: Ingredient):
 	progress.hide()
 	highlight.visible = result.is_edible
 
-func set_ingredient(ingredient: Ingredient):
-	if self.ingredient is Bread:
-		(self.ingredient as Bread).add_ingredient(ingredient)
+func set_ingredient(ing: Ingredient):
+	if ingredient is Bread and ing is not Bread:
+		(ingredient as Bread).add_ingredient(ing)
 	else:
-		self.ingredient = ingredient
+		ingredient = ing
 		for connection in ingredient.done_cookin.get_connections():
-			ingredient.done_cookin.disconnect(connection["callable"])
-		ingredient.done_cookin.connect(done_cookin)
-		ingredient.cook(self)
-		progress.max_value = ingredient.timer.wait_time
+			ing.done_cookin.disconnect(connection["callable"])
+		ing.done_cookin.connect(done_cookin)
+		ing.cook(self)
+		progress.max_value = ing.timer.wait_time
 		smoke.emitting = true

@@ -14,10 +14,7 @@ func matches(bread: Bread) -> bool:
 	if bread.ingredients.size() != ingredients.size():
 		return false
 	for ingredient in ingredients:
-	#for i in range(ingredients.size()):
-		# TODO: This would be worth more maybe
-		#if ingredients[i].id != bread.ingredients[i].id:
-		if bread.ingredients.find_custom(func(i): return i.id == ingredient.id) < 0:
+		if not bread.ingredients.any(func(i): return i.id == ingredient.id):
 			return false
 	return true
 
@@ -29,7 +26,16 @@ func toggle_prepping(prepping: bool):
 func add_ingredient(ingredient: Ingredient):
 	ingredients.push_back(ingredient)
 	ingredient.reparent(ingredient_spot)
+	var random_variance := Vector2(randf_range(-.1, .1), randf_range(-.1, .1))
+	ingredient.global_position = ingredient_spot.global_position + random_variance
 	ingredient.sprite.z_index = 1
+
+# copies ingredients from self to to
+func copy_ingredients(to: Bread) -> void:
+	to.ingredients = self.ingredients
+	to.ingredients[0] = to # reset this back
+	for child in self.ingredient_spot.get_children():
+		child.reparent(to.ingredient_spot)
 
 func _on_placed():
 	if self.ingredient is Bread:

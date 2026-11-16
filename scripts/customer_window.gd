@@ -1,7 +1,7 @@
 class_name CustomerWindow
 extends Clickzone
 
-const LINE_MOVED_AMOUNT := 30.0
+const LINE_MOVED_AMOUNT := 10.0
 
 @onready var timer: Timer = $Timer
 @onready var customer_spot: Node2D = $CustomerSpot
@@ -27,7 +27,10 @@ func do_action():
 		highlight.hide()
 		ticket_generator.take_order(line[0])
 		line.remove_at(0)
-		timer.start(timer.time_left + LINE_MOVED_AMOUNT)
+		if line.size():
+			timer.start(timer.time_left + LINE_MOVED_AMOUNT)
+		else:
+			timer.stop()
 		_refresh()
 
 func _process(delta: float) -> void:
@@ -57,6 +60,8 @@ func _remove_customer(customer: Customer):
 	if i >= 0:
 		line.remove_at(i)
 		customer.queue_free()
+	else:
+		timer.stop()
 
 func _take_damage():
 	SignalBus.line_damage.emit()

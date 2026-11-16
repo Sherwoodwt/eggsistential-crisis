@@ -19,13 +19,15 @@ signal done_cookin(ingredient: Ingredient)
 @export var half_container_sprite: Texture2D
 @export var last_container_sprite: Texture2D
 
+@export var similar_ingredients: Array[String]
+
 var method: CookMethod
 
 func _ready():
 	timer.timeout.connect(finish_cookin)
 	sprite.texture = placed_sprite
 
-func cook(cooker: Cooker):
+func cook(cooker: Dropzone):
 	var i = cook_methods.find_custom(func(c): return c.cooker == cooker.id)
 	if i < 0:
 		return
@@ -42,5 +44,7 @@ func stop_cookin():
 func finish_cookin():
 	var instance = method.cooked_ingredient.instantiate() as Ingredient
 	add_sibling(instance)
+	if self is Bread and instance is Bread:
+		(self as Bread).copy_ingredients(instance as Bread)
 	queue_free.call_deferred()
 	done_cookin.emit(instance)

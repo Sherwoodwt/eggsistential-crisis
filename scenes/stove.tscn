@@ -8,60 +8,29 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1853354067]
 modulate = Color(0.37413925, 0.37413928, 0.37413922, 1)
-position = Vector2(1.9073486e-06, 0)
-scale = Vector2(384, 192)
+scale = Vector2(256, 128)
 texture = SubResource("CanvasTexture_5yv1l")
 
-[node name="StoveSection" parent="." unique_id=2017318805 instance=ExtResource("1_bocw4")]
-position = Vector2(-160, -64)
-
-[node name="StoveSection2" parent="." unique_id=273050683 instance=ExtResource("1_bocw4")]
-position = Vector2(-96, -64)
-
-[node name="StoveSection3" parent="." unique_id=392393297 instance=ExtResource("1_bocw4")]
-position = Vector2(-32, -64)
-
-[node name="StoveSection4" parent="." unique_id=1622709987 instance=ExtResource("1_bocw4")]
-position = Vector2(32, -64)
-
-[node name="StoveSection5" parent="." unique_id=1760535141 instance=ExtResource("1_bocw4")]
-position = Vector2(96, -64)
-
-[node name="StoveSection6" parent="." unique_id=233473241 instance=ExtResource("1_bocw4")]
-position = Vector2(160, -64)
-
-[node name="StoveSection7" parent="." unique_id=238619250 instance=ExtResource("1_bocw4")]
-position = Vector2(-160, 0)
-
-[node name="StoveSection8" parent="." unique_id=244331824 instance=ExtResource("1_bocw4")]
-position = Vector2(-96, 0)
-
 [node name="StoveSection9" parent="." unique_id=1317198394 instance=ExtResource("1_bocw4")]
-position = Vector2(-32, 0)
+position = Vector2(-96, -32)
 
 [node name="StoveSection10" parent="." unique_id=49793370 instance=ExtResource("1_bocw4")]
-position = Vector2(32, 0)
+position = Vector2(-32, -32)
 
 [node name="StoveSection11" parent="." unique_id=1557493620 instance=ExtResource("1_bocw4")]
-position = Vector2(96, 0)
+position = Vector2(32, -32)
 
 [node name="StoveSection12" parent="." unique_id=757548975 instance=ExtResource("1_bocw4")]
-position = Vector2(160, 0)
-
-[node name="StoveSection13" parent="." unique_id=1646538607 instance=ExtResource("1_bocw4")]
-position = Vector2(-160, 64)
-
-[node name="StoveSection14" parent="." unique_id=2000784019 instance=ExtResource("1_bocw4")]
-position = Vector2(-96, 64)
+position = Vector2(96, -32)
 
 [node name="StoveSection15" parent="." unique_id=688488294 instance=ExtResource("1_bocw4")]
-position = Vector2(-32, 64)
+position = Vector2(-96, 32)
 
 [node name="StoveSection16" parent="." unique_id=1106661832 instance=ExtResource("1_bocw4")]
-position = Vector2(32, 64)
+position = Vector2(-32, 32)
 
 [node name="StoveSection17" parent="." unique_id=1371259755 instance=ExtResource("1_bocw4")]
-position = Vector2(96, 64)
+position = Vector2(32, 32)
 
 [node name="StoveSection18" parent="." unique_id=379428190 instance=ExtResource("1_bocw4")]
-position = Vector2(160, 64)
+position = Vector2(96, 32)

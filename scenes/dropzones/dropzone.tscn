@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cgwon0x2yxwar" path="res://scripts/dropzones/dropzone.gd" id="1_b56ip"]
 [ext_resource type="PackedScene" uid="uid://23knctddjng5" path="res://scenes/highlight.tscn" id="2_00wu2"]
+[ext_resource type="Shader" uid="uid://cbfis3pml5sgc" path="res://shaders/hover.gdshader" id="3_w64jn"]
+[ext_resource type="Texture2D" uid="uid://b40q8cqf8dymj" path="res://sprites/fried_egg.png" id="4_wbbka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
 size = Vector2(64, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yv1l"]
+shader = ExtResource("3_w64jn")
 
 [node name="Dropzone" type="Area2D" unique_id=1394619472]
 script = ExtResource("1_b56ip")
@@ -15,5 +20,11 @@ shape = SubResource("RectangleShape2D_5yv1l")
 
 [node name="Highlight" parent="." unique_id=624597074 instance=ExtResource("2_00wu2")]
 visible = false
+
+[node name="HoverAnimation" type="Sprite2D" parent="." unique_id=1775807012]
+visible = false
+modulate = Color(1, 1, 1, 0.6862745)
+material = SubResource("ShaderMaterial_5yv1l")
+texture = ExtResource("4_wbbka")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

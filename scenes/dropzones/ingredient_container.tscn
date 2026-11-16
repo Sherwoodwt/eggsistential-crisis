@@ -9,6 +9,7 @@ script = ExtResource("1_coqhe")
 capacity = 24
 amount = 24
 ingredient_scene = null
+id = "container"
 
 [node name="Highlight" parent="." index="1" unique_id=624597074]
 scale = Vector2(3, 3)

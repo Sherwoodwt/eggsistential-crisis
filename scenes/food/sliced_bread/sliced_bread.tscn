@@ -32,6 +32,7 @@ icon_sprite = ExtResource("5_o421x")
 full_container_sprite = ExtResource("6_otahj")
 half_container_sprite = ExtResource("7_kknea")
 last_container_sprite = ExtResource("8_cleni")
+similar_ingredients = Array[String](["sliced_toast"])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("5_o421x")

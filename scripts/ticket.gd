@@ -3,6 +3,7 @@ extends Control
 
 @onready var items: Node = $MarginContainer/VBoxContainer
 @onready var highlight: AnimatedSprite2D = $Highlight
+@onready var button: Button = $Button
 
 @export var ticket_item_scene: PackedScene
 @export var for_order: bool
@@ -10,7 +11,7 @@ extends Control
 @export var customer: Customer
 
 func _ready():
-	gui_input.connect(_handle_gui_input)
+	button.pressed.connect(_handle_click)
 	SignalBus.counter_updated.connect(check_ready)
 	SignalBus.sale_made.connect(complete)
 	# store sandwich in ticket and hide it
@@ -19,12 +20,11 @@ func _ready():
 		sandwich.visible = false
 		set_sandwich(sandwich)
 
-func _handle_gui_input(event: InputEvent):
+func _handle_click():
 	if not highlight.visible: # only when ready to go
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		highlight.hide()
-		SignalBus.send_ticket.emit(self)
+	highlight.hide()
+	SignalBus.send_ticket.emit(self)
 
 func set_sandwich(sandwich: Bread):
 	for i in range(sandwich.ingredients.size() - 1, -1, -1): # backwards index
@@ -45,5 +45,5 @@ func complete(customer: Customer):
 
 func check_ready(sandwiches: Array[Bread]):
 	if !for_order: return
-	if sandwiches.any(func(s): s.matches(sandwich)):
+	if sandwiches.any(func(s): return s.matches(sandwich)):
 		highlight.visible = true

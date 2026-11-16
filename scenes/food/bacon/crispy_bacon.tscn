@@ -20,6 +20,7 @@ is_edible = true
 hover_sprite = ExtResource("2_v2adx")
 placed_sprite = ExtResource("2_v2adx")
 icon_sprite = ExtResource("2_v2adx")
+similar_ingredients = Array[String](["bacon"])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("2_v2adx")

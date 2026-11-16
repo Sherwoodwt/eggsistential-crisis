@@ -37,6 +37,9 @@ func random_sandwich() -> Bread:
 	var topping_copy = toppings
 	for i in range(topping_count):
 		var topping = topping_copy.pop_at(randi_range(0, topping_copy.size()-1)).instantiate()
+		for ing in bread.ingredients:
+			if ing.similar_ingredients.any(func(sim): return sim == topping.id):
+				topping = ing.duplicate()
 		bread.ingredients.append(topping)
 	return bread
 

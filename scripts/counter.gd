@@ -23,12 +23,11 @@ func _update_counter():
 	SignalBus.counter_updated.emit(sandwiches)
 
 func _reserve_sandwiches(ticket: Ticket):
-	for sandwich in ticket.sandwiches:
-		for counter in counters.filter(func(c): return c.ingredient != null):
-			if not reserved_sandwiches.has(counter.ingredient) and sandwich.matches(counter.ingredient as Bread):
-				reserved_sandwiches.append(counter.ingredient as Bread)
-				counter.ingredient = null
-				counter.disabled = true
+	for counter in counters.filter(func(c): return c.ingredient != null):
+		if not reserved_sandwiches.has(counter.ingredient) and ticket.sandwich.matches(counter.ingredient as Bread):
+			reserved_sandwiches.append(counter.ingredient as Bread)
+			counter.ingredient = null
+			counter.disabled = true
 	_update_counter()
 
 func _reset_reservations(customer: Customer):
