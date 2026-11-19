@@ -31,10 +31,11 @@ scale = Vector2(2, 2)
 position = Vector2(96, -16)
 scale = Vector2(2, 2)
 
-[node name="Ticket" parent="." unique_id=1687168901 instance=ExtResource("3_laq1u")]
+[node name="IngredientList" parent="." unique_id=367528924 instance=ExtResource("3_laq1u")]
 visible = false
-offset_left = -129.0
-offset_top = -181.0
-offset_right = 16.0
-offset_bottom = -53.0
+offset_left = -127.0
+offset_top = -322.0
+offset_right = 18.0
+offset_bottom = -51.0
+time = 0.0
 for_order = false

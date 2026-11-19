@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://72a47y5ykqwp"]
 
 [ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_o4fji"]
+[ext_resource type="Script" uid="uid://bqcyyu0587p8t" path="res://scripts/bread.gd" id="2_ww8iu"]
 [ext_resource type="Texture2D" uid="uid://bpg5f55o66lga" path="res://sprites/burnt_toast_icon.png" id="3_76rf7"]
 [ext_resource type="Texture2D" uid="uid://d4mwdi5gne3i1" path="res://sprites/burnt_toast.png" id="3_o4fji"]
 
@@ -8,14 +9,15 @@
 size = Vector2(64, 32)
 
 [node name="BurntToast" unique_id=579245693 instance=ExtResource("1_o4fji")]
+script = ExtResource("2_ww8iu")
 id = "burnt_toast"
 label = "Burnt Toast"
 hover_sprite = ExtResource("3_76rf7")
 placed_sprite = ExtResource("3_o4fji")
 icon_sprite = ExtResource("3_76rf7")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
-shape = SubResource("RectangleShape2D_o4fji")
-
-[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("3_o4fji")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288463560]
+shape = SubResource("RectangleShape2D_o4fji")

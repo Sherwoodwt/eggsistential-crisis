@@ -81,7 +81,8 @@ func _input(event: InputEvent) -> void:
 	#var is_deselect = Input.is_action_just_pressed("deselect")
 	if is_drop and dragging:
 		hover_animation.hide()
-		currently_held.show()
+		if currently_held:
+			currently_held.show()
 		ingredient.sprite.texture = ingredient.placed_sprite
 		ingredient.sprite.z_index = 0
 		dragging = false

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://1sysgxxq2va8"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_t8awi"]
+[ext_resource type="Texture2D" uid="uid://hlm2tejwtsvf" path="res://sprites/crispy_onion_slice.png" id="2_7hn2d"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_ex6ol"]
+[ext_resource type="PackedScene" uid="uid://6evp31j2k7c3" path="res://scenes/food/onion/burnt_onion.tscn" id="3_82obk"]
+
+[sub_resource type="Resource" id="Resource_7m18n"]
+script = ExtResource("2_ex6ol")
+cooked_ingredient = ExtResource("3_82obk")
+cooker = "stove"
+cook_time = 6.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="CrispyOnion" unique_id=579245693 instance=ExtResource("1_t8awi")]
+cook_methods = Array[ExtResource("2_ex6ol")]([SubResource("Resource_7m18n")])
+id = "crispy_onion"
+label = "On Crsp"
+is_edible = true
+hover_sprite = ExtResource("2_7hn2d")
+placed_sprite = ExtResource("2_7hn2d")
+icon_sprite = ExtResource("2_7hn2d")
+similar_ingredients = Array[String](["cooked_onion", "onion"])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_7hn2d")

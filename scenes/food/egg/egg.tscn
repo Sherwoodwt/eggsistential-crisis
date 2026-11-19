@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://gverx1r5lsc0" path="res://sprites/egg.png" id="3_vh25c"]
 [ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/egg/fried_egg.tscn" id="3_ww3ow"]
 [ext_resource type="Texture2D" uid="uid://xebtemqxo770" path="res://sprites/frying_egg.png" id="4_6phm8"]
+[ext_resource type="PackedScene" uid="uid://bxkai5qicgpfa" path="res://scenes/food/egg/raw_scrambled_egg.tscn" id="4_ygf31"]
 [ext_resource type="Texture2D" uid="uid://byc0sysee8la8" path="res://sprites/egg_container_full.png" id="6_t62lf"]
 [ext_resource type="Texture2D" uid="uid://nwifivybx1wh" path="res://sprites/egg_container_half.png" id="7_omj5l"]
 [ext_resource type="Texture2D" uid="uid://wpbi4gwqwcvh" path="res://sprites/egg_container_last.png" id="8_7sq1t"]
@@ -16,11 +17,18 @@ cooker = "stove"
 cook_time = 7.0
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
+[sub_resource type="Resource" id="Resource_fse4d"]
+script = ExtResource("2_6phm8")
+cooked_ingredient = ExtResource("4_ygf31")
+cooker = "egg_bowl"
+cook_time = 0.1
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]
 radius = 11.0
 
 [node name="Egg" unique_id=579245693 instance=ExtResource("1_t62lf")]
-cook_methods = Array[ExtResource("2_6phm8")]([SubResource("Resource_l64r8")])
+cook_methods = Array[ExtResource("2_6phm8")]([SubResource("Resource_l64r8"), SubResource("Resource_fse4d")])
 id = "egg"
 label = "Egg"
 hover_sprite = ExtResource("3_vh25c")
@@ -30,8 +38,8 @@ full_container_sprite = ExtResource("6_t62lf")
 half_container_sprite = ExtResource("7_omj5l")
 last_container_sprite = ExtResource("8_7sq1t")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
-shape = SubResource("CapsuleShape2D_5yv1l")
-
-[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("3_vh25c")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288463560]
+shape = SubResource("CapsuleShape2D_5yv1l")

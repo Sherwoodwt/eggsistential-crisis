@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ciixqctc18p0k"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_bjxmt"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_b8lx6"]
+[ext_resource type="Texture2D" uid="uid://f11x6o4x54wx" path="res://sprites/cooked_onion_slice.png" id="2_impdh"]
+[ext_resource type="PackedScene" uid="uid://1sysgxxq2va8" path="res://scenes/food/onion/crispy_onion.tscn" id="3_2sqhn"]
+
+[sub_resource type="Resource" id="Resource_8ool0"]
+script = ExtResource("2_b8lx6")
+cooked_ingredient = ExtResource("3_2sqhn")
+cooker = "stove"
+cook_time = 10.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="CookedOnion" unique_id=579245693 instance=ExtResource("1_bjxmt")]
+cook_methods = Array[ExtResource("2_b8lx6")]([SubResource("Resource_8ool0")])
+id = "cooked_onion"
+label = "On Grld"
+is_edible = true
+hover_sprite = ExtResource("2_impdh")
+placed_sprite = ExtResource("2_impdh")
+icon_sprite = ExtResource("2_impdh")
+similar_ingredients = Array[String](["crispy_onion", "onion"])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_impdh")

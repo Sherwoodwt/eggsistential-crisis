@@ -27,14 +27,8 @@ color = Color(0.49747366, 0.49747366, 0.49747366, 1)
 [node name="StoveSection" unique_id=1394619472 instance=ExtResource("1_qt8fj")]
 script = ExtResource("1_cxvxy")
 id = "stove"
-draggable = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="2" unique_id=2115637438]
-position = Vector2(0, -5)
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_l64r8")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="3" unique_id=882331475]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="2" unique_id=882331475]
 visible = false
 anchors_preset = 4
 anchor_top = 0.5
@@ -45,6 +39,13 @@ offset_right = 33.0
 offset_bottom = 164.0
 grow_vertical = 2
 scale = Vector2(0.04, 0.295)
+step = 0.1
 fill_mode = 3
 texture_under = ExtResource("3_gmac3")
 texture_progress = ExtResource("4_obhj3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4" unique_id=2115637438]
+z_index = 2
+position = Vector2(0, -5)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_l64r8")

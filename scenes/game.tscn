@@ -19,11 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/egg/fried_egg.tscn" id="11_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b25rm10ldtn16" path="res://scenes/food/mayo.tscn" id="11_trtic"]
 [ext_resource type="Texture2D" uid="uid://bjkqojhx7iveh" path="res://sprites/monk.png" id="12_ca42v"]
-[ext_resource type="PackedScene" uid="uid://2i3rfon2nkok" path="res://scenes/food/tomato.tscn" id="13_ir15t"]
+[ext_resource type="PackedScene" uid="uid://2i3rfon2nkok" path="res://scenes/food/tomato/tomato.tscn" id="13_ir15t"]
 [ext_resource type="PackedScene" uid="uid://cq8su4nwlrp4q" path="res://scenes/dropzones/egg_bowl.tscn" id="13_v2yb1"]
 [ext_resource type="Texture2D" uid="uid://bykn72scj0dw5" path="res://sprites/robinhood.png" id="14_rysoc"]
 [ext_resource type="PackedScene" uid="uid://ci0um4xxfcfj5" path="res://scenes/cashier.tscn" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://dynlnt0p4614k" path="res://sprites/king_arthur.png" id="16_37s47"]
+[ext_resource type="PackedScene" uid="uid://bxcmhejtvf7vx" path="res://scenes/food/onion/onion.tscn" id="16_7025r"]
 [ext_resource type="PackedScene" uid="uid://b8sgy0g0kpeg8" path="res://scenes/customer.tscn" id="16_sww3w"]
 [ext_resource type="Texture2D" uid="uid://btsda6raxy14m" path="res://sprites/cyclops.png" id="17_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://dbhh8udxn7t5x" path="res://sprites/toothfairy.png" id="18_5newe"]
@@ -32,7 +33,12 @@
 [ext_resource type="Script" uid="uid://bkh3pltca8hmv" path="res://scripts/ticket_generator.gd" id="21_bt5mj"]
 [ext_resource type="Script" uid="uid://bvku728dbdxyy" path="res://scripts/order_window.gd" id="28_suyxu"]
 [ext_resource type="PackedScene" uid="uid://c531njn0bcka7" path="res://scenes/food/bacon/bacon.tscn" id="30_wljb1"]
+[ext_resource type="PackedScene" uid="uid://bjfknp1grsf2x" path="res://scenes/food/egg/scrambled_egg.tscn" id="31_nepv3"]
 [ext_resource type="PackedScene" uid="uid://ocga3p5fnsqb" path="res://scenes/food/bacon/crispy_bacon.tscn" id="31_v2yb1"]
+[ext_resource type="PackedScene" uid="uid://cx2m1kqi3phcx" path="res://scenes/food/egg/cirspy_scrambled_egg.tscn" id="32_7025r"]
+[ext_resource type="PackedScene" uid="uid://b1sveluvvrxbe" path="res://scenes/food/cheese/cheese.tscn" id="35_m4url"]
+[ext_resource type="PackedScene" uid="uid://ccoulh85pmhfp" path="res://scenes/food/cheese/melted_cheese.tscn" id="36_8ool0"]
+[ext_resource type="PackedScene" uid="uid://c05bnk2quv4fo" path="res://scenes/food/cheese/cirspy_cheese.tscn" id="37_pr1ej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
 size = Vector2(108.666664, 100.66667)
@@ -119,6 +125,14 @@ position = Vector2(-466, 207)
 position = Vector2(120, 10)
 ingredient_scene = ExtResource("13_ir15t")
 
+[node name="IngredientContainer6" parent="." unique_id=777425780 instance=ExtResource("2_yqjtg")]
+position = Vector2(184, 10)
+ingredient_scene = ExtResource("35_m4url")
+
+[node name="IngredientContainer7" parent="." unique_id=1455765072 instance=ExtResource("2_yqjtg")]
+position = Vector2(248, 10)
+ingredient_scene = ExtResource("16_7025r")
+
 [node name="IngredientContainer4" parent="." unique_id=1344460085 instance=ExtResource("2_yqjtg")]
 position = Vector2(56, 10)
 ingredient_scene = ExtResource("11_trtic")
@@ -134,12 +148,13 @@ texture = ExtResource("11_e1j6l")
 [node name="CustomerWindow" parent="." unique_id=759986310 node_paths=PackedStringArray("ticket_generator") instance=ExtResource("21_37s47")]
 position = Vector2(-437, -210)
 ticket_generator = NodePath("../TicketGenerator")
+wait_time = 30.0
 
 [node name="CustomerGenerator" type="Node2D" parent="." unique_id=1667417632]
 position = Vector2(0, 88)
 script = ExtResource("8_kvpfn")
-min_time = 20.0
-max_time = 45.0
+min_time = 10.0
+max_time = 20.0
 customer_scene = ExtResource("16_sww3w")
 customer_sprites = Array[Texture2D]([ExtResource("8_gee14"), ExtResource("12_ca42v"), ExtResource("14_rysoc"), ExtResource("16_37s47"), ExtResource("17_bt5mj"), ExtResource("18_e1j6l"), ExtResource("18_5newe")])
 
@@ -152,8 +167,8 @@ script = ExtResource("21_bt5mj")
 ticket_prefab = ExtResource("9_0tnpc")
 breads = Array[PackedScene]([ExtResource("4_iywne"), ExtResource("10_dinhu")])
 sauces = Array[PackedScene]([ExtResource("11_trtic")])
-eggs = Array[PackedScene]([ExtResource("11_kvuet")])
-toppings = Array[PackedScene]([ExtResource("13_ir15t"), ExtResource("30_wljb1"), ExtResource("31_v2yb1")])
+eggs = Array[PackedScene]([ExtResource("11_kvuet"), ExtResource("31_nepv3"), ExtResource("32_7025r")])
+toppings = Array[PackedScene]([ExtResource("13_ir15t"), ExtResource("30_wljb1"), ExtResource("31_v2yb1"), ExtResource("35_m4url"), ExtResource("36_8ool0"), ExtResource("37_pr1ej")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TicketGenerator" unique_id=2078256576]
 
@@ -181,7 +196,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_right = -2.0
-offset_bottom = 186.0
+offset_bottom = 270.0
 grow_horizontal = 2
 alignment = 2
 

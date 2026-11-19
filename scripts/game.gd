@@ -8,7 +8,7 @@ var sale_count := 0
 func _ready():
 	SignalBus.sale_made.connect(func(c): _refresh())
 	SignalBus.customer_expired.connect(_take_damage)
-	SignalBus.line_damage.connect(_take_damage)
+	SignalBus.ticket_expired.connect(func(t): _take_damage())
 
 func _refresh():
 	sale_count += 1

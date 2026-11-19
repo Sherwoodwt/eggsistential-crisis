@@ -1,7 +1,7 @@
 class_name Counter
 extends Node
 
-@onready var ingredient_list: Ticket = $Ticket
+@onready var ingredient_list: Ticket = $IngredientList
 
 var counters: Array[CounterSection]
 var reserved_sandwiches: Array[Bread]

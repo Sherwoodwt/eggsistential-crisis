@@ -14,8 +14,8 @@ const MAX_TICKETS := 4
 var tickets: Array[Ticket]
 
 func _ready():
-	SignalBus.sale_made.connect(remove_ticket)
-	SignalBus.customer_expired.connect(remove_ticket)
+	SignalBus.sale_made.connect(_handle_sale)
+	SignalBus.ticket_expired.connect(remove_ticket)
 
 func take_order(customer: Customer):
 	if tickets.size() > MAX_TICKETS:
@@ -43,11 +43,16 @@ func random_sandwich() -> Bread:
 		bread.ingredients.append(topping)
 	return bread
 
+func _handle_sale(customer: Customer):
+	for ticket in tickets:
+		if ticket.customer == customer:
+			remove_ticket(ticket)
+
 func has_room() -> bool:
 	return tickets.size() < MAX_TICKETS
 
-func remove_ticket(customer: Customer):
-	var i = tickets.find_custom(func(t): return t.customer == customer)
+func remove_ticket(ticket: Ticket):
+	var i = tickets.find(ticket)
 	tickets[i].queue_free.call_deferred()
 	tickets.remove_at(i)
 	print("deleting ticket")

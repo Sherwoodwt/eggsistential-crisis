@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 [node name="CrispyBacon" unique_id=579245693 instance=ExtResource("1_hm6a6")]
 cook_methods = Array[ExtResource("2_8dk5r")]([SubResource("Resource_78fbx")])
 id = "crispy_bacon"
-label = "Crispy Bacon"
+label = "Bcn Crsp"
 is_edible = true
 hover_sprite = ExtResource("2_v2adx")
 placed_sprite = ExtResource("2_v2adx")

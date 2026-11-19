@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxcmhejtvf7vx"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_l8qgm"]
+[ext_resource type="Texture2D" uid="uid://cee10n2e5byey" path="res://sprites/onion_slice.png" id="2_0p8ut"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_030td"]
+[ext_resource type="Texture2D" uid="uid://cx82yp6wc3wit" path="res://sprites/full_onion_container.png" id="3_030td"]
+[ext_resource type="PackedScene" uid="uid://ciixqctc18p0k" path="res://scenes/food/onion/cooked_onion.tscn" id="3_bmrjr"]
+[ext_resource type="Texture2D" uid="uid://8nbaq2gtd0gv" path="res://sprites/half_onion_container.png" id="4_bmrjr"]
+[ext_resource type="Texture2D" uid="uid://gs4vyfdv6hfl" path="res://sprites/last_onion_container.png" id="5_7m18n"]
+
+[sub_resource type="Resource" id="Resource_m4url"]
+script = ExtResource("2_030td")
+cooked_ingredient = ExtResource("3_bmrjr")
+cooker = "stove"
+cook_time = 10.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="Onion" unique_id=579245693 instance=ExtResource("1_l8qgm")]
+cook_methods = Array[ExtResource("2_030td")]([SubResource("Resource_m4url")])
+id = "onion"
+label = "Onion"
+is_edible = true
+hover_sprite = ExtResource("2_0p8ut")
+placed_sprite = ExtResource("2_0p8ut")
+icon_sprite = ExtResource("2_0p8ut")
+full_container_sprite = ExtResource("3_030td")
+half_container_sprite = ExtResource("4_bmrjr")
+last_container_sprite = ExtResource("5_7m18n")
+similar_ingredients = Array[String](["cooked_onion", "crispy_onion"])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_0p8ut")

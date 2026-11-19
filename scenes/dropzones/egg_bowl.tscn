@@ -3,10 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzones/dropzone.tscn" id="1_o4jko"]
 [ext_resource type="Script" uid="uid://btl85oj11rme7" path="res://scripts/dropzones/egg_bowl.gd" id="2_1bkv6"]
 [ext_resource type="Texture2D" uid="uid://dlxvwkl2e47bn" path="res://sprites/bowl_with_fork.png" id="2_cr7oc"]
-[ext_resource type="Texture2D" uid="uid://dva1bq2e8ohmt" path="res://sprites/bowl_with_fork_and_egg_raw.png" id="4_8q101"]
+[ext_resource type="Texture2D" uid="uid://bcnu8fudqabjf" path="res://sprites/bowl_stir1.png" id="4_iahvl"]
 [ext_resource type="Texture2D" uid="uid://bagr1j88cwqpg" path="res://sprites/bowl_with_fork_and_egg.png" id="5_kogu8"]
+[ext_resource type="Texture2D" uid="uid://d2e4liaq4hoqx" path="res://sprites/bowl_stir2.png" id="5_qpqbc"]
+[ext_resource type="Texture2D" uid="uid://hlhe5mq4jdh6" path="res://sprites/bowl_stir3.png" id="6_15y3j"]
 [ext_resource type="Texture2D" uid="uid://cfnmmar0qyfon" path="res://sprites/empty_health.png" id="6_kogu8"]
 [ext_resource type="Texture2D" uid="uid://brmov1wu88jgi" path="res://sprites/full_health.png" id="7_63qpi"]
+[ext_resource type="Texture2D" uid="uid://cimi3t1fithvk" path="res://sprites/bowl_stir4.png" id="7_n7fkb"]
+[ext_resource type="Texture2D" uid="uid://bb7rxts0j2pfw" path="res://sprites/bowl_stir5.png" id="8_anw2p"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ci120"]
 load_path = "res://.godot/imported/fried_egg.png-3ab098abf8f03f5de551dcdaa8ba54ff.ctex"
@@ -14,9 +18,8 @@ load_path = "res://.godot/imported/fried_egg.png-3ab098abf8f03f5de551dcdaa8ba54f
 [node name="EggBowl" unique_id=1394619472 instance=ExtResource("1_o4jko")]
 script = ExtResource("2_1bkv6")
 empty_bowl_sprite = ExtResource("2_cr7oc")
-full_bowl_raw_sprite = ExtResource("4_8q101")
+bowl_stir_sprites = Array[Texture2D]([ExtResource("8_anw2p"), ExtResource("7_n7fkb"), ExtResource("6_15y3j"), ExtResource("5_qpqbc"), ExtResource("4_iahvl")])
 full_bowl_sprite = ExtResource("5_kogu8")
-bowl_stir_animation = Array[Texture2D]([])
 id = "egg_bowl"
 
 [node name="HoverAnimation" parent="." index="2" unique_id=1775807012]
@@ -27,6 +30,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_cr7oc")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." index="4" unique_id=409416238]
+visible = false
 offset_left = -39.0
 offset_top = -28.0
 offset_right = 25.0

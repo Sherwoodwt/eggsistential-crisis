@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ccoulh85pmhfp"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_naidr"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_avd0n"]
+[ext_resource type="Texture2D" uid="uid://dku8a0ct0f138" path="res://sprites/melted_cheese.png" id="2_j0sub"]
+[ext_resource type="PackedScene" uid="uid://c05bnk2quv4fo" path="res://scenes/food/cheese/cirspy_cheese.tscn" id="3_kssdt"]
+
+[sub_resource type="Resource" id="Resource_g2xcm"]
+script = ExtResource("2_avd0n")
+cooked_ingredient = ExtResource("3_kssdt")
+cooker = "stove"
+cook_time = 5.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="MeltedCheese" unique_id=579245693 instance=ExtResource("1_naidr")]
+cook_methods = Array[ExtResource("2_avd0n")]([SubResource("Resource_g2xcm")])
+id = "melted_cheese"
+label = "Chs Mtd"
+is_edible = true
+hover_sprite = ExtResource("2_j0sub")
+placed_sprite = ExtResource("2_j0sub")
+icon_sprite = ExtResource("2_j0sub")
+similar_ingredients = Array[String](["cheese", "crispy_cheese"])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_j0sub")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dwq7vfhtoq3rd"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_x2pmg"]
+[ext_resource type="Texture2D" uid="uid://bkpsf6l6wxkan" path="res://sprites/burnt_cheese.png" id="2_d062f"]
+
+[node name="BurntCheese" unique_id=579245693 instance=ExtResource("1_x2pmg")]
+id = "burnt_cheese"
+label = "Burnt Cheese"
+hover_sprite = ExtResource("2_d062f")
+placed_sprite = ExtResource("2_d062f")
+icon_sprite = ExtResource("2_d062f")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_d062f")

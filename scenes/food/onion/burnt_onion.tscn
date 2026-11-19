@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://6evp31j2k7c3"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_7ok3v"]
+[ext_resource type="Texture2D" uid="uid://8q5hgkf1dp0q" path="res://sprites/burnt_onion_slice.png" id="2_8bj12"]
+
+[node name="BurntOnion" unique_id=579245693 instance=ExtResource("1_7ok3v")]
+id = "burnt_onion"
+label = "Burnt Onion"
+hover_sprite = ExtResource("2_8bj12")
+placed_sprite = ExtResource("2_8bj12")
+icon_sprite = ExtResource("2_8bj12")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_8bj12")

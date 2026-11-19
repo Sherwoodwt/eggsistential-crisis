@@ -18,14 +18,13 @@ radius = 15.033297
 [node name="FriedEgg" unique_id=579245693 instance=ExtResource("1_gbq58")]
 cook_methods = Array[ExtResource("2_gbq58")]([SubResource("Resource_6phm8")])
 id = "fried_egg"
-label = "Fried Egg"
-is_edible = true
+label = "Egg Frd"
 hover_sprite = ExtResource("2_hisr7")
 placed_sprite = ExtResource("2_hisr7")
 icon_sprite = ExtResource("2_hisr7")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=288463560]
-shape = SubResource("CircleShape2D_5yv1l")
-
-[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("2_hisr7")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288463560]
+shape = SubResource("CircleShape2D_5yv1l")

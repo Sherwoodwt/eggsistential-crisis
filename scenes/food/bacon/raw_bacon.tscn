@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 [node name="RawBacon" unique_id=579245693 instance=ExtResource("1_c48bf")]
 cook_methods = Array[ExtResource("2_qys55")]([SubResource("Resource_t64xj")])
 id = "raw_bacon"
-label = "Raw Bacon"
+label = "Raw Bac"
 hover_sprite = ExtResource("2_sr1jq")
 placed_sprite = ExtResource("2_sr1jq")
 icon_sprite = ExtResource("2_sr1jq")
@@ -26,5 +26,5 @@ full_container_sprite = ExtResource("3_qys55")
 half_container_sprite = ExtResource("4_3pcfo")
 last_container_sprite = ExtResource("5_movi1")
 
-[node name="Sprite2D" parent="." index="2" unique_id=1397792290]
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
 texture = ExtResource("2_sr1jq")

@@ -11,16 +11,16 @@ const LINE_MOVED_AMOUNT := 10.0
 @onready var ui_line_pressure: TextureProgressBar = $CanvasLayer/TextureProgressBar
 
 @export var ticket_generator: TicketGenerator
+@export var wait_time: float
 
 var line: Array[Customer]
 
 func _ready():
 	super()
-	timer.timeout.connect(_take_damage)
+	timer.wait_time = wait_time
+	timer.timeout.connect(_abandon_line)
 	ui_line_pressure.max_value = timer.wait_time
 	SignalBus.new_customer.connect(_add_to_line)
-	SignalBus.customer_expired.connect(_remove_customer)
-	SignalBus.sale_made.connect(_remove_customer)
 
 func do_action():
 	if line.size() and ticket_generator.has_room():
@@ -55,14 +55,11 @@ func _refresh():
 	else:
 		sprite.texture = null
 
-func _remove_customer(customer: Customer):
-	var i = line.find(customer)
-	if i >= 0:
-		line.remove_at(i)
-		customer.queue_free()
-	else:
-		timer.stop()
-
-func _take_damage():
-	SignalBus.line_damage.emit()
-	timer.start()
+func _abandon_line():
+	if line.size():
+		var rand_customer: Customer = line.pick_random()
+		line.remove_at(line.find(rand_customer))
+		rand_customer.queue_free()
+		if line.size() == 0:
+			timer.stop()
+	SignalBus.customer_expired.emit()

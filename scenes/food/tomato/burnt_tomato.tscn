@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bda1u0nsep230"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_jmhup"]
+[ext_resource type="Texture2D" uid="uid://2nokkm1o0tjd" path="res://sprites/tomato_slice_overcooked.png" id="2_cfnp7"]
+
+[node name="BurntTomato" unique_id=579245693 instance=ExtResource("1_jmhup")]
+id = "burnt_tomato"
+label = "Tom Burnt"
+hover_sprite = ExtResource("2_cfnp7")
+placed_sprite = ExtResource("2_cfnp7")
+icon_sprite = ExtResource("2_cfnp7")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_cfnp7")

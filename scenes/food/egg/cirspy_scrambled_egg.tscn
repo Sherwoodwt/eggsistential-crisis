@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cx2m1kqi3phcx"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_hmjts"]
+[ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_eiewd"]
+[ext_resource type="Texture2D" uid="uid://b3oruqjh2rm55" path="res://sprites/crispy_scrambled_egg.png" id="2_i75us"]
+[ext_resource type="PackedScene" uid="uid://kkfwgykeq7ct" path="res://scenes/food/egg/burnt_scrambled_egg.tscn" id="3_xhexe"]
+
+[sub_resource type="Resource" id="Resource_83gjh"]
+script = ExtResource("2_eiewd")
+cooked_ingredient = ExtResource("3_xhexe")
+cooker = "stove"
+cook_time = 4.0
+metadata/_custom_type_script = "uid://tiglmwd6t4kk"
+
+[node name="CirspyScrambledEgg" unique_id=579245693 instance=ExtResource("1_hmjts")]
+cook_methods = Array[ExtResource("2_eiewd")]([SubResource("Resource_83gjh")])
+id = "crispy_scrambled_egg"
+label = "Egg Crsp"
+is_edible = true
+hover_sprite = ExtResource("2_i75us")
+placed_sprite = ExtResource("2_i75us")
+icon_sprite = ExtResource("2_i75us")
+similar_ingredients = Array[String](["scrambled_egg"])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397792290]
+texture = ExtResource("2_i75us")
