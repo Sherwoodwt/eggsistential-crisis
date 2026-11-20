@@ -19,6 +19,7 @@ func _ready():
 	super()
 	placed.connect(_add_egg)
 	moved.connect(_pour)
+	dropped.connect(_on_dropped)
 
 func _add_egg():
 	sprite.texture = bowl_stir_sprites[0]
@@ -34,8 +35,11 @@ func _pour():
 	progress.value = 0
 	ingredient = null
 
+func _on_dropped():
+	ingredient.visible = false
+
 func can_place(ingredient: Ingredient) -> bool:
-	return ingredient.id == "egg"
+	return ingredient.id == "egg" and self.ingredient == null
 
 # override for grabbing spoon
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

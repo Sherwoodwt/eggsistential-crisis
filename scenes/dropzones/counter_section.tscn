@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzones/dropzone.tscn" id="1_071lp"]
 [ext_resource type="Script" uid="uid://1epfi5phvuax" path="res://scripts/dropzones/counter_section.gd" id="2_x6nun"]
+[ext_resource type="PackedScene" uid="uid://bxr8gm7vogbyn" path="res://scenes/ticket.tscn" id="3_7qnf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_071lp"]
 size = Vector2(32, 32)
@@ -12,3 +13,18 @@ id = "counter"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1170215392]
 shape = SubResource("RectangleShape2D_071lp")
+
+[node name="Highlight" parent="." index="1" unique_id=624597074]
+position = Vector2(7.1525574e-07, 4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+
+[node name="IngredientList" parent="." index="3" unique_id=367528924 instance=ExtResource("3_7qnf8")]
+visible = false
+z_index = 5
+offset_left = -77.0
+offset_top = -122.0
+offset_right = 68.0
+offset_bottom = 125.0
+scale = Vector2(0.5, 0.5)
+time = 0.0
+for_order = false

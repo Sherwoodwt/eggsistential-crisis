@@ -3,14 +3,12 @@
 [ext_resource type="Script" uid="uid://cs3eg1so6k185" path="res://scripts/ticket.gd" id="1_7yqn5"]
 [ext_resource type="Texture2D" uid="uid://m7rbpw6360u4" path="res://sprites/ticket.png" id="1_krxyo"]
 [ext_resource type="PackedScene" uid="uid://dcmlcir0alsx3" path="res://scenes/ticket_item.tscn" id="3_o7y5v"]
-[ext_resource type="PackedScene" uid="uid://23knctddjng5" path="res://scenes/highlight.tscn" id="3_rn5ye"]
 [ext_resource type="Texture2D" uid="uid://23pgfc7gmr62" path="res://sprites/empty_health_horizontal.png" id="5_vod7w"]
 [ext_resource type="Texture2D" uid="uid://bc02twn5q7n3x" path="res://sprites/full_health_horizontal.png" id="6_28p7m"]
 
 [node name="Ticket" type="NinePatchRect" unique_id=367528924]
 custom_minimum_size = Vector2(145, 0)
-offset_left = -1.0
-offset_right = 144.0
+offset_right = 145.0
 offset_bottom = 271.0
 size_flags_vertical = 3
 texture = ExtResource("1_krxyo")
@@ -39,11 +37,6 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1630492648]
 layout_mode = 2
 
-[node name="Highlight" parent="." unique_id=624597074 instance=ExtResource("3_rn5ye")]
-visible = false
-position = Vector2(71, 118)
-scale = Vector2(8.98, 8.98)
-
 [node name="Button" type="Button" parent="." unique_id=491535060]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -54,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=562655296]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

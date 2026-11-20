@@ -37,6 +37,8 @@ func on_moved():
 		sprite.texture = ingredient.half_container_sprite
 	if amount == 1:
 		sprite.texture = ingredient.last_container_sprite
+	if amount == 0:
+		sprite.texture = ingredient.empty_container_sprite
 
 func on_dropped():
 	ingredient.visible = false

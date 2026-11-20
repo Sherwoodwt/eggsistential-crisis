@@ -3,7 +3,7 @@ extends Ingredient
 
 @onready var ingredient_spot: Node2D = $ingredient_spot
 
-const MAX_DIFFERENCE_TO_MATCH := 4
+const MAX_DIFFERENCE_TO_MATCH := 3
 
 var ingredients: Array[Ingredient]
 var closed: bool
@@ -13,24 +13,24 @@ func _ready():
 	ingredients.push_front(self)
 
 func matches(bread: Bread) -> bool:
-	var diff := compare_and_score(bread)
-	print(diff)
+	var diff := compare_differences(bread)
 	return diff <= MAX_DIFFERENCE_TO_MATCH
 
-# returns count representing differences betwee breads ingredients
-# if missing, 2 differences. if similar but wrong, 1 difference
-func compare_and_score(bread: Bread) -> int:
+# returns count representing differences between breads ingredients
+func compare_differences(bread: Bread) -> int:
 	var differences = 0
 	var bread_ingredients_copy := bread.ingredients.duplicate(true)
 	for ingredient in ingredients:
 		var score = 0
 		for ing in bread_ingredients_copy:
 			if ing.id == ingredient.id or ing.similar_ingredients.find(ingredient.id) >= 0:
-				score += 1
+				score += 1 # similar ingredient == 1 difference
 				if ing.id == ingredient.id:
-					score += 1
+					score += 1 # different ingredient == 2 difference
 				bread_ingredients_copy.remove_at(bread_ingredients_copy.find(ing))
 		differences += 2 - score
+	for ingredient in bread_ingredients_copy:
+		differences += 1 # added difference for each extra unwanted ingredient
 	return differences
 
 func toggle_prepping(prepping: bool):

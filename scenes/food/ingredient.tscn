@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://crao1uw0nkyg4"]
 
 [ext_resource type="Script" uid="uid://ci0fwb2ooxklo" path="res://scripts/ingredient.gd" id="1_vf6ln"]
+[ext_resource type="Texture2D" uid="uid://bs2pphu21180t" path="res://sprites/empty_container.png" id="2_u6xjx"]
+[ext_resource type="Texture2D" uid="uid://bmir36pivwi42" path="res://sprites/wrapped_sandwich.png" id="3_fwkyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
 
 [node name="Ingredient" type="Area2D" unique_id=579245693]
 script = ExtResource("1_vf6ln")
+empty_container_sprite = ExtResource("2_u6xjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397792290]
+texture = ExtResource("3_fwkyp")
 
 [node name="Timer" type="Timer" parent="." unique_id=1188006534]
 one_shot = true

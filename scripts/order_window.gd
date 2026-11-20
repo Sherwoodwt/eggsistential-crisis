@@ -21,7 +21,7 @@ func call_customer(ticket: Ticket):
 func approach_counter():
 	timer.stop()
 	sprite.texture = current_ticket.customer.texture
-	SignalBus.customer_ready_to_checkout.emit(current_ticket.customer)
+	SignalBus.ticket_ready.emit(current_ticket)
 
-func customer_leave(customer: Customer):
+func customer_leave(ticket: Ticket):
 	sprite.texture = null

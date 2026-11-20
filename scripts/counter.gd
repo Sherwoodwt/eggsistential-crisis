@@ -1,18 +1,16 @@
 class_name Counter
 extends Node
 
-@onready var ingredient_list: Ticket = $IngredientList
-
 var counters: Array[CounterSection]
 var reserved_sandwiches: Array[Bread]
 
 func _ready():
+	SignalBus.ticket_created.connect(func(t): _update_counter())
 	SignalBus.send_ticket.connect(_reserve_sandwiches)
 	SignalBus.sale_made.connect(_reset_reservations)
 	counters.assign(get_children().filter(func(c): return c is CounterSection))
 	for counter in counters:
 		counter.placed.connect(_update_counter)
-		counter.ingredient_list = ingredient_list
 
 func _update_counter():
 	var sandwiches: Array[Bread] = []
@@ -24,15 +22,16 @@ func _update_counter():
 
 func _reserve_sandwiches(ticket: Ticket):
 	for counter in counters.filter(func(c): return c.ingredient != null):
-		if not reserved_sandwiches.has(counter.ingredient) and ticket.sandwich.matches(counter.ingredient as Bread):
+		if not reserved_sandwiches.has(counter.ingredient) and ticket.sandwich_match == counter.ingredient:
 			reserved_sandwiches.append(counter.ingredient as Bread)
 			counter.ingredient = null
 			counter.disabled = true
 	_update_counter()
 
-func _reset_reservations(customer: Customer):
+func _reset_reservations(ticket: Ticket):
 	for sandwich in reserved_sandwiches:
 		sandwich.queue_free()
 	reserved_sandwiches.clear()
 	for counter in counters:
 		counter.disabled = false
+	_update_counter()

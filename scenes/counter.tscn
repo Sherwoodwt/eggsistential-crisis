@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bg1x8p55hr3n6" path="res://scripts/counter.gd" id="1_8e5hq"]
 [ext_resource type="PackedScene" uid="uid://b6aqutmk276wx" path="res://scenes/dropzones/counter_section.tscn" id="1_sc7mx"]
-[ext_resource type="PackedScene" uid="uid://bxr8gm7vogbyn" path="res://scenes/ticket.tscn" id="3_laq1u"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 
@@ -30,12 +29,3 @@ scale = Vector2(2, 2)
 [node name="CounterSection4" parent="." unique_id=1284078108 instance=ExtResource("1_sc7mx")]
 position = Vector2(96, -16)
 scale = Vector2(2, 2)
-
-[node name="IngredientList" parent="." unique_id=367528924 instance=ExtResource("3_laq1u")]
-visible = false
-offset_left = -127.0
-offset_top = -322.0
-offset_right = 18.0
-offset_bottom = -51.0
-time = 0.0
-for_order = false

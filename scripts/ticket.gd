@@ -1,8 +1,10 @@
 class_name Ticket
 extends Control
 
+const DEFAULT_SANDWICH_PRICE = 5
+
+@onready var highlight_shader: Shader = preload("res://shaders/ready.gdshader")
 @onready var items: Node = $MarginContainer/VBoxContainer
-@onready var highlight: AnimatedSprite2D = $Highlight
 @onready var button: Button = $Button
 @onready var progress: TextureProgressBar = $TextureProgressBar
 @onready var timer: Timer = $Timer
@@ -12,8 +14,19 @@ extends Control
 @export var for_order: bool
 @export var sandwich: Bread
 @export var customer: Customer
+@export var sandwich_match: Bread
+@export var sandwich_match_score: int
+
+var highlight: ShaderMaterial
+var original_height: float
+var shifted_height: float
+var sent: bool
 
 func _ready():
+	original_height = global_position.y
+	shifted_height = global_position.y + 10
+	highlight = ShaderMaterial.new()
+	highlight.shader = highlight_shader
 	if for_order:
 		timer.wait_time = time
 		timer.timeout.connect(_fail_ticket)
@@ -21,6 +34,8 @@ func _ready():
 		progress.visible = true
 		progress.max_value = time
 		progress.value = progress.max_value
+	button.mouse_entered.connect(_mouse_entered)
+	button.mouse_exited.connect(_mouse_exited)
 	button.pressed.connect(_handle_click)
 	SignalBus.counter_updated.connect(check_ready)
 	SignalBus.sale_made.connect(complete)
@@ -34,10 +49,22 @@ func _process(delta: float) -> void:
 	if for_order:
 		progress.value = timer.time_left
 
+func _mouse_entered():
+	if material:
+		global_position.y = shifted_height
+		SignalBus.ticket_highlighted.emit(self)
+
+func _mouse_exited():
+	if not sent:
+		global_position.y = original_height
+		SignalBus.ticket_unhighlighted.emit(self)
+
 func _handle_click():
-	if not highlight.visible: # only when ready to go
+	if not material: # only when ready to go
 		return
-	highlight.hide()
+	sent = true
+	material = null
+	_mouse_exited()
 	timer.stop()
 	SignalBus.send_ticket.emit(self)
 
@@ -59,16 +86,33 @@ func clear_sandwich():
 	for item in items.get_children():
 		item.queue_free()
 
-func complete(customer: Customer):
-	if self.customer == customer:
+func complete(ticket: Ticket):
+	if self.customer == ticket.customer:
 		print("ticket complete")
 		sandwich.queue_free()
 		visible = false
 
 func check_ready(sandwiches: Array[Bread]):
-	if !for_order: return
-	if sandwiches.any(func(s): return s.matches(sandwich)):
-		highlight.visible = true
+	if !for_order or sent: return
+	var best_score: int = -1
+	var best_sandwich: Bread = null
+	for sand in sandwiches:
+		var score := sandwich.compare_differences(sand)
+		if best_sandwich == null or score < best_score:
+			best_score = score
+			best_sandwich = sand
+	if best_sandwich:
+		sandwich_match = best_sandwich
+		sandwich_match_score = best_score
+		material = highlight
+	else:
+		sandwich_match = null
+		sandwich_match_score = -1
+		material = null
+
+# TODO: Calculate based on ingredient cost
+func get_price() -> int:
+	return DEFAULT_SANDWICH_PRICE
 
 func _fail_ticket():
 	timer.stop()

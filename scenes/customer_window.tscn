@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dje0mndbw3oah" path="res://scripts/customer_window.gd" id="2_3tb6q"]
 [ext_resource type="Texture2D" uid="uid://cfnmmar0qyfon" path="res://sprites/empty_health.png" id="3_mm354"]
 [ext_resource type="Texture2D" uid="uid://brmov1wu88jgi" path="res://sprites/full_health.png" id="4_m70i0"]
+[ext_resource type="Texture2D" uid="uid://8ygkvsflm5gs" path="res://sprites/window.png" id="5_m70i0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm354"]
 size = Vector2(120, 120)
@@ -19,14 +20,18 @@ wait_time = 0.0
 position = Vector2(1.5, -1.5)
 shape = SubResource("RectangleShape2D_mm354")
 
-[node name="Highlight" parent="." index="2" unique_id=624597074]
+[node name="WindowBackground" type="Sprite2D" parent="." index="2" unique_id=366587723]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_m70i0")
+
+[node name="Highlight" parent="." index="3" unique_id=624597074]
 scale = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="3" unique_id=1194949254]
+[node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1194949254]
 
-[node name="CustomerSpot" type="Node2D" parent="." index="4" unique_id=1414993167]
+[node name="CustomerSpot" type="Node2D" parent="." index="5" unique_id=1414993167]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="5" unique_id=1675701640]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6" unique_id=1675701640]
 
 [node name="LineCount" type="Label" parent="CanvasLayer" index="0" unique_id=686081358]
 offset_left = 44.0

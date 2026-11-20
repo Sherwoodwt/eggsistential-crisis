@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://eqex7qjox75q" path="res://sprites/full_rating.png" id="3_suyxu"]
 [ext_resource type="PackedScene" uid="uid://lxxwk60bbusg" path="res://scenes/food/sliced_bread/sliced_bread.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://dnctu2rg73guj" path="res://scenes/dropzones/trash.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cps5phybvh0hl" path="res://scenes/order_window.tscn" id="6_pr1ej"]
 [ext_resource type="PackedScene" uid="uid://bbiey0godthw7" path="res://scenes/counter.tscn" id="7_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://mvb5org2cu4a" path="res://sprites/witch.png" id="8_gee14"]
 [ext_resource type="Script" uid="uid://dttpywie2j1cp" path="res://scripts/customer_generator.gd" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bxr8gm7vogbyn" path="res://scenes/ticket.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_bread/sliced_toast.tscn" id="10_dinhu"]
 [ext_resource type="PackedScene" uid="uid://ddsnxiwns2guq" path="res://scenes/food/bacon/raw_bacon.tscn" id="10_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://8ygkvsflm5gs" path="res://sprites/window.png" id="11_e1j6l"]
 [ext_resource type="PackedScene" uid="uid://dgl2o8lwlgiq3" path="res://scenes/food/egg/fried_egg.tscn" id="11_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b25rm10ldtn16" path="res://scenes/food/mayo.tscn" id="11_trtic"]
 [ext_resource type="Texture2D" uid="uid://bjkqojhx7iveh" path="res://sprites/monk.png" id="12_ca42v"]
@@ -31,17 +31,17 @@
 [ext_resource type="Texture2D" uid="uid://dknpbbcbyom35" path="res://sprites/ugly_duckling.png" id="18_e1j6l"]
 [ext_resource type="PackedScene" uid="uid://bekijt06egs6s" path="res://scenes/customer_window.tscn" id="21_37s47"]
 [ext_resource type="Script" uid="uid://bkh3pltca8hmv" path="res://scripts/ticket_generator.gd" id="21_bt5mj"]
-[ext_resource type="Script" uid="uid://bvku728dbdxyy" path="res://scripts/order_window.gd" id="28_suyxu"]
 [ext_resource type="PackedScene" uid="uid://c531njn0bcka7" path="res://scenes/food/bacon/bacon.tscn" id="30_wljb1"]
 [ext_resource type="PackedScene" uid="uid://bjfknp1grsf2x" path="res://scenes/food/egg/scrambled_egg.tscn" id="31_nepv3"]
 [ext_resource type="PackedScene" uid="uid://ocga3p5fnsqb" path="res://scenes/food/bacon/crispy_bacon.tscn" id="31_v2yb1"]
+[ext_resource type="PackedScene" uid="uid://b0afoxikfnin7" path="res://scenes/food/hot_sauce.tscn" id="32_05nbr"]
 [ext_resource type="PackedScene" uid="uid://cx2m1kqi3phcx" path="res://scenes/food/egg/cirspy_scrambled_egg.tscn" id="32_7025r"]
 [ext_resource type="PackedScene" uid="uid://b1sveluvvrxbe" path="res://scenes/food/cheese/cheese.tscn" id="35_m4url"]
+[ext_resource type="PackedScene" uid="uid://dwu1cipul15o7" path="res://scenes/food/tomato/cooked_tomato.tscn" id="35_pr1ej"]
 [ext_resource type="PackedScene" uid="uid://ccoulh85pmhfp" path="res://scenes/food/cheese/melted_cheese.tscn" id="36_8ool0"]
 [ext_resource type="PackedScene" uid="uid://c05bnk2quv4fo" path="res://scenes/food/cheese/cirspy_cheese.tscn" id="37_pr1ej"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
-size = Vector2(108.666664, 100.66667)
+[ext_resource type="PackedScene" uid="uid://ciixqctc18p0k" path="res://scenes/food/onion/cooked_onion.tscn" id="40_05nbr"]
+[ext_resource type="PackedScene" uid="uid://1sysgxxq2va8" path="res://scenes/food/onion/crispy_onion.tscn" id="41_0sl42"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5yv1l"]
 
@@ -51,12 +51,30 @@ metadata/_edit_horizontal_guides_ = [-36.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1040675970]
 
-[node name="Score" type="Label" parent="CanvasLayer" unique_id=1391484796]
+[node name="Served" type="Label" parent="CanvasLayer" unique_id=1391484796]
 offset_left = 1043.0
 offset_top = 31.0
 offset_right = 1120.0
 offset_bottom = 54.0
 text = "SERVED: 0"
+horizontal_alignment = 2
+
+[node name="Money" type="Label" parent="CanvasLayer" unique_id=397595126]
+offset_left = 1043.0
+offset_top = 54.0
+offset_right = 1120.0
+offset_bottom = 77.0
+text = "$0"
+horizontal_alignment = 2
+
+[node name="Score_DEBUG" type="Label" parent="CanvasLayer" unique_id=256397573]
+visible = false
+offset_left = 1023.0
+offset_top = 74.0
+offset_right = 1119.0
+offset_bottom = 123.0
+text = "SCORE: 0123
+"
 horizontal_alignment = 2
 
 [node name="Health" type="TextureProgressBar" parent="CanvasLayer" unique_id=484231487]
@@ -85,26 +103,51 @@ scale = Vector2(1.4, 1.4)
 position = Vector2(195.99998, 144)
 scale = Vector2(1.4, 1.4)
 
-[node name="WindowBackground2" type="Sprite2D" parent="." unique_id=1851556016]
-position = Vector2(418.88, -166.12)
-scale = Vector2(2.295, 2.295)
-texture = ExtResource("11_e1j6l")
-
-[node name="OrderWindow" type="Area2D" parent="." unique_id=863373433]
-position = Vector2(418.88, -166.12)
-scale = Vector2(2.295, 2.295)
-script = ExtResource("28_suyxu")
-
-[node name="Timer" type="Timer" parent="OrderWindow" unique_id=808745918]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OrderWindow" unique_id=2110879855]
-position = Vector2(0.33332825, -3)
-shape = SubResource("RectangleShape2D_5yv1l")
-
-[node name="Sprite2D" type="Sprite2D" parent="OrderWindow" unique_id=1841516694]
+[node name="OrderWindow" parent="." unique_id=2129481675 instance=ExtResource("6_pr1ej")]
+position = Vector2(409, -216)
 
 [node name="Counter" parent="." unique_id=490754155 instance=ExtResource("7_u5sy4")]
-position = Vector2(419, -59)
+position = Vector2(409, -137)
+scale = Vector2(0.655, 0.655)
+
+[node name="TicketGenerator" type="Node2D" parent="." unique_id=1710143925]
+position = Vector2(-0.9999695, 88)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("21_bt5mj")
+debug_mode = true
+ticket_prefab = ExtResource("9_0tnpc")
+breads = Array[PackedScene]([ExtResource("4_iywne"), ExtResource("10_dinhu")])
+sauces = Array[PackedScene]([ExtResource("11_trtic"), ExtResource("32_05nbr")])
+eggs = Array[PackedScene]([ExtResource("11_kvuet"), ExtResource("31_nepv3"), ExtResource("32_7025r")])
+toppings = Array[PackedScene]([ExtResource("13_ir15t"), ExtResource("35_pr1ej"), ExtResource("30_wljb1"), ExtResource("31_v2yb1"), ExtResource("35_m4url"), ExtResource("36_8ool0"), ExtResource("37_pr1ej"), ExtResource("16_7025r"), ExtResource("40_05nbr"), ExtResource("41_0sl42")])
+
+[node name="Tickets" type="Control" parent="TicketGenerator" unique_id=511661331]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -319.00006
+offset_top = -387.00003
+offset_right = 288.99994
+offset_bottom = -347.00003
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TicketGenerator/Tickets" unique_id=264596369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_5yv1l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TicketGenerator/Tickets" unique_id=1392418941]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 270.0
+grow_horizontal = 2
+alignment = 2
 
 [node name="IngredientContainer2" parent="." unique_id=387531494 instance=ExtResource("2_yqjtg")]
 position = Vector2(-395, 143)
@@ -122,28 +165,27 @@ ingredient_scene = ExtResource("4_iywne")
 position = Vector2(-466, 207)
 
 [node name="IngredientContainer3" parent="." unique_id=1816807359 instance=ExtResource("2_yqjtg")]
-position = Vector2(120, 10)
+position = Vector2(56, 10)
 ingredient_scene = ExtResource("13_ir15t")
 
 [node name="IngredientContainer6" parent="." unique_id=777425780 instance=ExtResource("2_yqjtg")]
-position = Vector2(184, 10)
+position = Vector2(120, 10)
 ingredient_scene = ExtResource("35_m4url")
 
 [node name="IngredientContainer7" parent="." unique_id=1455765072 instance=ExtResource("2_yqjtg")]
-position = Vector2(248, 10)
+position = Vector2(184, 10)
 ingredient_scene = ExtResource("16_7025r")
 
 [node name="IngredientContainer4" parent="." unique_id=1344460085 instance=ExtResource("2_yqjtg")]
-position = Vector2(56, 10)
+position = Vector2(248, 10)
 ingredient_scene = ExtResource("11_trtic")
+
+[node name="IngredientContainer8" parent="." unique_id=2023389375 instance=ExtResource("2_yqjtg")]
+position = Vector2(312, 10)
+ingredient_scene = ExtResource("32_05nbr")
 
 [node name="Trash" parent="." unique_id=399260091 instance=ExtResource("5_iywne")]
 position = Vector2(-27, 273)
-
-[node name="WindowBackground" type="Sprite2D" parent="." unique_id=1781740075]
-position = Vector2(-439, -210)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_e1j6l")
 
 [node name="CustomerWindow" parent="." unique_id=759986310 node_paths=PackedStringArray("ticket_generator") instance=ExtResource("21_37s47")]
 position = Vector2(-437, -210)
@@ -161,45 +203,6 @@ customer_sprites = Array[Texture2D]([ExtResource("8_gee14"), ExtResource("12_ca4
 [node name="Timer" type="Timer" parent="CustomerGenerator" unique_id=290292201]
 autostart = true
 
-[node name="TicketGenerator" type="Node2D" parent="." unique_id=1710143925]
-position = Vector2(0, 88)
-script = ExtResource("21_bt5mj")
-ticket_prefab = ExtResource("9_0tnpc")
-breads = Array[PackedScene]([ExtResource("4_iywne"), ExtResource("10_dinhu")])
-sauces = Array[PackedScene]([ExtResource("11_trtic")])
-eggs = Array[PackedScene]([ExtResource("11_kvuet"), ExtResource("31_nepv3"), ExtResource("32_7025r")])
-toppings = Array[PackedScene]([ExtResource("13_ir15t"), ExtResource("30_wljb1"), ExtResource("31_v2yb1"), ExtResource("35_m4url"), ExtResource("36_8ool0"), ExtResource("37_pr1ej")])
-
-[node name="CanvasLayer" type="CanvasLayer" parent="TicketGenerator" unique_id=2078256576]
-
-[node name="Tickets" type="Control" parent="TicketGenerator/CanvasLayer" unique_id=511661331]
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -300.0
-offset_right = 213.0
-offset_bottom = 40.0
-grow_horizontal = 2
-
-[node name="TextureRect" type="TextureRect" parent="TicketGenerator/CanvasLayer/Tickets" unique_id=264596369]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("CanvasTexture_5yv1l")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TicketGenerator/CanvasLayer/Tickets" unique_id=1392418941]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -2.0
-offset_bottom = 270.0
-grow_horizontal = 2
-alignment = 2
-
 [node name="Cashier" parent="." unique_id=1893743003 node_paths=PackedStringArray("counter") instance=ExtResource("15_ir15t")]
-position = Vector2(242, -63)
+position = Vector2(358, -84)
 counter = NodePath("../Counter")

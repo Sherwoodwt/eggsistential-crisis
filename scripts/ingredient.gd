@@ -18,6 +18,7 @@ signal done_cookin(ingredient: Ingredient)
 @export var full_container_sprite: Texture2D
 @export var half_container_sprite: Texture2D
 @export var last_container_sprite: Texture2D
+@export var empty_container_sprite: Texture2D
 
 @export var similar_ingredients: Array[String]
 

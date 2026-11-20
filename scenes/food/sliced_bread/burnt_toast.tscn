@@ -21,3 +21,6 @@ texture = ExtResource("3_o4fji")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=288463560]
 shape = SubResource("RectangleShape2D_o4fji")
+
+[node name="ingredient_spot" type="Node2D" parent="." index="3" unique_id=535823400]
+position = Vector2(-17, 0)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b0afoxikfnin7"]
+
+[ext_resource type="PackedScene" uid="uid://crao1uw0nkyg4" path="res://scenes/food/ingredient.tscn" id="1_t8m4s"]
+[ext_resource type="Texture2D" uid="uid://bx70h0q7u3md0" path="res://sprites/hot_sauce_full.png" id="2_k1ken"]
+[ext_resource type="Texture2D" uid="uid://bvj3unktqwfq1" path="res://sprites/hot_sauce_flipped.png" id="3_ilnap"]
+[ext_resource type="Texture2D" uid="uid://hr4oq6m6b43q" path="res://sprites/hot_sauce_drizzle.png" id="3_k1ken"]
+[ext_resource type="Texture2D" uid="uid://botnp06ouv4xv" path="res://sprites/hot_sauce_half.png" id="4_njitl"]
+[ext_resource type="Texture2D" uid="uid://cjf1xf3prfcb1" path="res://sprites/hot_sauce_last.png" id="5_snlqo"]
+[ext_resource type="Texture2D" uid="uid://dk1xr4vngo6ls" path="res://sprites/hot_sauce_empty.png" id="6_wspwu"]
+
+[node name="HotSauce" unique_id=579245693 instance=ExtResource("1_t8m4s")]
+id = "hot_sauce"
+label = "Hot Sauce"
+is_edible = true
+is_sauce = true
+hover_sprite = ExtResource("3_ilnap")
+placed_sprite = ExtResource("3_k1ken")
+icon_sprite = ExtResource("2_k1ken")
+full_container_sprite = ExtResource("2_k1ken")
+half_container_sprite = ExtResource("4_njitl")
+last_container_sprite = ExtResource("5_snlqo")
+empty_container_sprite = ExtResource("6_wspwu")
