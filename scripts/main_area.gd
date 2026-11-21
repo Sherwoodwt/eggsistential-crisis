@@ -11,6 +11,7 @@ func _ready():
 	SignalBus.sale_made.connect(_refresh)
 	SignalBus.customer_expired.connect(_take_damage)
 	SignalBus.ticket_expired.connect(func(t): _take_damage())
+	$FailButton.pressed.connect(func(): SignalBus.lose.emit())
 
 func _refresh(ticket: Ticket):
 	sale_count += 1

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EggsistentialCrisis"
-run/main_scene="uid://xr2nbehopw4o"
+run/main_scene="uid://dmqcy53ub07a5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
