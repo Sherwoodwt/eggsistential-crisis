@@ -8,6 +8,7 @@ const DEFAULT_SANDWICH_PRICE = 5
 @onready var button: Button = $Button
 @onready var progress: TextureProgressBar = $TextureProgressBar
 @onready var timer: Timer = $Timer
+@onready var picture: TextureRect = $Picture
 
 @export var time: float
 @export var ticket_item_scene: PackedScene
@@ -28,6 +29,7 @@ func _ready():
 	highlight = ShaderMaterial.new()
 	highlight.shader = highlight_shader
 	if for_order:
+		picture.texture = customer.texture
 		timer.wait_time = time
 		timer.timeout.connect(_fail_ticket)
 		timer.start()
@@ -38,7 +40,6 @@ func _ready():
 	button.mouse_exited.connect(_mouse_exited)
 	button.pressed.connect(_handle_click)
 	SignalBus.counter_updated.connect(check_ready)
-	SignalBus.sale_made.connect(complete)
 	# store sandwich in ticket and hide it
 	if sandwich:
 		add_child(sandwich)
@@ -85,12 +86,6 @@ func set_sandwich(sandwich: Bread):
 func clear_sandwich():
 	for item in items.get_children():
 		item.queue_free()
-
-func complete(ticket: Ticket):
-	if self.customer == ticket.customer:
-		print("ticket complete")
-		sandwich.queue_free()
-		visible = false
 
 func check_ready(sandwiches: Array[Bread]):
 	if !for_order or sent: return

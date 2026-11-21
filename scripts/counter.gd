@@ -7,7 +7,7 @@ var reserved_sandwiches: Array[Bread]
 func _ready():
 	SignalBus.ticket_created.connect(func(t): _update_counter())
 	SignalBus.send_ticket.connect(_reserve_sandwiches)
-	SignalBus.sale_made.connect(_reset_reservations)
+	SignalBus.sale_made.connect(_unreserve_sandwiches)
 	counters.assign(get_children().filter(func(c): return c is CounterSection))
 	for counter in counters:
 		counter.placed.connect(_update_counter)
@@ -28,10 +28,12 @@ func _reserve_sandwiches(ticket: Ticket):
 			counter.disabled = true
 	_update_counter()
 
-func _reset_reservations(ticket: Ticket):
+func _unreserve_sandwiches(ticket: Ticket):
 	for sandwich in reserved_sandwiches:
-		sandwich.queue_free()
-	reserved_sandwiches.clear()
-	for counter in counters:
-		counter.disabled = false
+		if sandwich == ticket.sandwich_match:
+			var i = counters.find_custom(func(c): return c.ingredient == sandwich)
+			var counter = counters[i] as CounterSection
+			counter.disabled = false
+			reserved_sandwiches.remove_at(reserved_sandwiches.find(sandwich))
+			sandwich.queue_free()
 	_update_counter()

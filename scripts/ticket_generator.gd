@@ -63,6 +63,6 @@ func has_room() -> bool:
 
 func remove_ticket(ticket: Ticket):
 	var i = tickets.find(ticket)
-	tickets[i].queue_free.call_deferred()
+	tickets[i].queue_free()
 	tickets.remove_at(i)
 	print("deleting ticket")

@@ -37,4 +37,3 @@ func do_action():
 		var log = "%s %s%d" % [text, "+" if score >= 0 else "", score]
 		add_child(GuiLogger.print(log, color))
 		SignalBus.sale_made.emit(ticket)
-		ticket = null

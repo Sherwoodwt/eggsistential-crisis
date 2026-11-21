@@ -31,20 +31,18 @@ scale = Vector2(5, 5)
 
 [node name="CustomerSpot" type="Node2D" parent="." index="5" unique_id=1414993167]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="6" unique_id=1675701640]
-
-[node name="LineCount" type="Label" parent="CanvasLayer" index="0" unique_id=686081358]
-offset_left = 44.0
-offset_top = 250.0
-offset_right = 119.0
-offset_bottom = 273.0
+[node name="LineCount" type="Label" parent="." index="6" unique_id=686081358]
+offset_left = -86.0
+offset_top = 110.0
+offset_right = -11.0
+offset_bottom = 133.0
 text = "IN LINE: 0"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" index="1" unique_id=1410416653]
-offset_left = 11.0
-offset_top = 25.0
-offset_right = 75.0
-offset_bottom = 217.0
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="7" unique_id=1410416653]
+offset_left = -121.0
+offset_top = -95.0
+offset_right = -57.0
+offset_bottom = 97.0
 scale = Vector2(0.255, 1)
 step = 0.1
 fill_mode = 3

@@ -15,3 +15,4 @@ signal ticket_ready(ticket: Ticket)
 signal customer_expired(customer: Customer)
 signal ticket_expired(ticket: Ticket)
 signal lose
+signal quit

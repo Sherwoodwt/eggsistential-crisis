@@ -11,12 +11,20 @@ scale = Vector2(1.495, 1.495)
 script = ExtResource("1_1dmkf")
 
 [node name="WindowBackground2" type="Sprite2D" parent="." unique_id=1995969131]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_paeka")
-
-[node name="Timer" type="Timer" parent="." unique_id=1613387150]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530500083]
 position = Vector2(0.33332825, -3)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_5yv1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=208199175]
+
+[node name="LineCount" type="Label" parent="." unique_id=1414232710]
+offset_left = 16.053513
+offset_top = 103.678925
+offset_right = 91.05351
+offset_bottom = 126.678925
+text = "IN LINE: 0"
+horizontal_alignment = 2

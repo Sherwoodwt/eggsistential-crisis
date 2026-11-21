@@ -7,8 +7,8 @@ const LINE_MOVED_AMOUNT := 10.0
 @onready var customer_spot: Node2D = $CustomerSpot
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var highlight: AnimatedSprite2D = $Highlight
-@onready var ui_linecount = $CanvasLayer/LineCount
-@onready var ui_line_pressure: TextureProgressBar = $CanvasLayer/TextureProgressBar
+@onready var ui_linecount = $LineCount
+@onready var ui_line_pressure: TextureProgressBar = $TextureProgressBar
 
 @export var ticket_generator: TicketGenerator
 @export var wait_time: float
@@ -57,9 +57,11 @@ func _refresh():
 
 func _abandon_line():
 	if line.size():
-		var rand_customer: Customer = line.pick_random()
-		line.remove_at(line.find(rand_customer))
-		rand_customer.queue_free()
+		var cust: Customer = line[0]
+		line.remove_at(0)
+		cust.queue_free()
+		add_child(GuiLogger.print("$%@&!", Color.RED))
 		if line.size() == 0:
 			timer.stop()
+	_refresh()
 	SignalBus.customer_expired.emit()
