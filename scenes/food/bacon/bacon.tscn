@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://b314dtd65x4x1" path="res://sprites/bacon.png" id="2_syvfo"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_xyt1r"]
 [ext_resource type="PackedScene" uid="uid://ocga3p5fnsqb" path="res://scenes/food/bacon/crispy_bacon.tscn" id="3_mrrqu"]
+[ext_resource type="AudioStream" uid="uid://d35b2gfwd5piu" path="res://sounds/cook1.wav" id="4_mrrqu"]
 
 [sub_resource type="Resource" id="Resource_movi1"]
 script = ExtResource("2_xyt1r")
 cooked_ingredient = ExtResource("3_mrrqu")
 cooker = "stove"
 cook_time = 6.0
+finish_sound = ExtResource("4_mrrqu")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [node name="Bacon" unique_id=579245693 instance=ExtResource("1_klxne")]

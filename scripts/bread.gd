@@ -12,25 +12,23 @@ func _ready():
 	super()
 	ingredients.push_front(self)
 
-func matches(bread: Bread) -> bool:
-	var diff := compare_differences(bread)
-	return diff <= MAX_DIFFERENCE_TO_MATCH
-
 # returns count representing differences between breads ingredients
 func compare_differences(bread: Bread) -> int:
 	var differences = 0
 	var bread_ingredients_copy := bread.ingredients.duplicate(true)
 	for ingredient in ingredients:
-		var score = 0
-		for ing in bread_ingredients_copy:
+		var matches = 0
+		for ing: Ingredient in bread_ingredients_copy:
 			if ing.id == ingredient.id or ing.similar_ingredients.find(ingredient.id) >= 0:
-				score += 1 # similar ingredient == 1 difference
+				matches += 1 # similar ingredient == 1 match
 				if ing.id == ingredient.id:
-					score += 1 # different ingredient == 2 difference
+					matches += 1 # identical ingredient == another match
 				bread_ingredients_copy.remove_at(bread_ingredients_copy.find(ing))
-		differences += 2 - score
+			if not ing.is_edible:
+				matches -= 10 # inedible food is bad
+		differences += 2 - matches # matches of 2 == 0 diffs
 	for ingredient in bread_ingredients_copy:
-		differences += 1 # added difference for each extra unwanted ingredient
+		differences += 2 # extra unwanted ingredient same penalty as missing ingredient
 	return differences
 
 func toggle_prepping(prepping: bool):

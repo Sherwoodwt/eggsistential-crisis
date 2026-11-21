@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dcmlcir0alsx3" path="res://scenes/ticket_item.tscn" id="3_o7y5v"]
 [ext_resource type="Texture2D" uid="uid://23pgfc7gmr62" path="res://sprites/empty_health_horizontal.png" id="5_vod7w"]
 [ext_resource type="Texture2D" uid="uid://bc02twn5q7n3x" path="res://sprites/full_health_horizontal.png" id="6_28p7m"]
+[ext_resource type="AudioStream" uid="uid://djqdtljup0lsy" path="res://sounds/new_ticket.wav" id="6_vod7w"]
 
 [node name="Ticket" type="NinePatchRect" unique_id=367528924]
 custom_minimum_size = Vector2(145, 0)
@@ -75,3 +76,6 @@ texture_under = ExtResource("5_vod7w")
 texture_progress = ExtResource("6_28p7m")
 
 [node name="Timer" type="Timer" parent="." unique_id=1827039]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=639508796]
+stream = ExtResource("6_vod7w")

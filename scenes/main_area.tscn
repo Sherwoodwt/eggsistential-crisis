@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvqjyatcgtn5u" path="res://scripts/main_area.gd" id="1_ws57a"]
 [ext_resource type="Texture2D" uid="uid://f0vt5fuf4be4" path="res://sprites/empty_rating.png" id="2_rfkww"]
+[ext_resource type="AudioStream" uid="uid://clf07a7mlb2dr" path="res://sounds/fail.wav" id="2_w1l53"]
 [ext_resource type="Texture2D" uid="uid://eqex7qjox75q" path="res://sprites/full_rating.png" id="3_w1l53"]
 [ext_resource type="PackedScene" uid="uid://bg10admtciej8" path="res://scenes/stove.tscn" id="4_j5kjo"]
 [ext_resource type="PackedScene" uid="uid://bqn7u1u5nqp5f" path="res://scenes/menus/pause_menu.tscn" id="4_rfkww"]
@@ -49,6 +50,9 @@
 [node name="MainArea" type="Node2D" unique_id=1126588430]
 script = ExtResource("1_ws57a")
 metadata/_edit_horizontal_guides_ = [-36.0]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1309884900]
+stream = ExtResource("2_w1l53")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1040675970]
 
@@ -211,10 +215,7 @@ autostart = true
 [node name="Cashier" parent="." unique_id=1893743003 node_paths=PackedStringArray("counter") instance=ExtResource("42_4khfn")]
 position = Vector2(358, -84)
 counter = NodePath("../Counter")
-
-[node name="FailButton" type="Button" parent="." unique_id=623529059]
-offset_left = 474.0
-offset_top = 279.0
-offset_right = 548.0
-offset_bottom = 310.0
-text = "asdfasdf"
+cash_sound = null
+yay_sound = null
+boo_sound = null
+fail_sound = null

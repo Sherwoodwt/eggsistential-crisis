@@ -5,12 +5,14 @@
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_o4fi0"]
 [ext_resource type="PackedScene" uid="uid://bjfknp1grsf2x" path="res://scenes/food/egg/scrambled_egg.tscn" id="3_fse4d"]
 [ext_resource type="Texture2D" uid="uid://c256302l6y06r" path="res://sprites/raw_scrambled_egg.png" id="3_o4fi0"]
+[ext_resource type="AudioStream" uid="uid://d35b2gfwd5piu" path="res://sounds/cook1.wav" id="4_fse4d"]
 
 [sub_resource type="Resource" id="Resource_hfkwi"]
 script = ExtResource("2_o4fi0")
 cooked_ingredient = ExtResource("3_fse4d")
 cooker = "stove"
 cook_time = 9.0
+finish_sound = ExtResource("4_fse4d")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [node name="RawScrambledEgg" unique_id=579245693 instance=ExtResource("1_wptnc")]

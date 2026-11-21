@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://du001bhuw60jt" path="res://sprites/tomato_slice_charred.png" id="2_0g73l"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_afckt"]
 [ext_resource type="PackedScene" uid="uid://bda1u0nsep230" path="res://scenes/food/tomato/burnt_tomato.tscn" id="3_nrnsd"]
+[ext_resource type="AudioStream" uid="uid://6vsw6do7qnmd" path="res://sounds/burn.wav" id="4_nrnsd"]
 
 [sub_resource type="Resource" id="Resource_jmhup"]
 script = ExtResource("2_afckt")
 cooked_ingredient = ExtResource("3_nrnsd")
 cooker = "stove"
 cook_time = 4.0
+finish_sound = ExtResource("4_nrnsd")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [node name="CookedTomato" unique_id=579245693 instance=ExtResource("1_tdypc")]

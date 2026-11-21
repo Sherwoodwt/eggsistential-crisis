@@ -5,6 +5,7 @@ const MAX_TIME := 5.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var ui_linecount: Label = $LineCount
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var approaching: Array[Ticket]
 var in_line: Array[Ticket]
@@ -14,6 +15,8 @@ func _ready():
 	SignalBus.sale_made.connect(customer_leave)
 
 func call_customer(ticket: Ticket):
+	add_child(GuiLogger.print("Order up!"))
+	audio.play()
 	approaching.append(ticket)
 	get_tree().create_timer(randf_range(MIN_TIME, MAX_TIME)).timeout\
 		.connect(func(): approach_counter(ticket))

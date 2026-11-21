@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_8240h"]
 [ext_resource type="Texture2D" uid="uid://dd6l0omyrg63d" path="res://sprites/crispy_cheese.png" id="2_hwgep"]
 [ext_resource type="PackedScene" uid="uid://dwq7vfhtoq3rd" path="res://scenes/food/cheese/burnt_cheese.tscn" id="3_j1vyk"]
+[ext_resource type="AudioStream" uid="uid://6vsw6do7qnmd" path="res://sounds/burn.wav" id="4_j1vyk"]
 
 [sub_resource type="Resource" id="Resource_1hadq"]
 script = ExtResource("2_8240h")
 cooked_ingredient = ExtResource("3_j1vyk")
 cooker = "stove"
 cook_time = 5.0
+finish_sound = ExtResource("4_j1vyk")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [node name="CirspyCheese" unique_id=579245693 instance=ExtResource("1_cwcv6")]

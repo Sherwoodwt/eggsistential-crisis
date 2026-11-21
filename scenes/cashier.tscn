@@ -3,10 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://nxuakkuveimf" path="res://scenes/clickzone.tscn" id="1_qxk7m"]
 [ext_resource type="Script" uid="uid://cicm7rucrgogh" path="res://scripts/cashier.gd" id="2_xw6i5"]
 [ext_resource type="Texture2D" uid="uid://cbep1q6qwxve3" path="res://sprites/cashier.png" id="2_yvugg"]
+[ext_resource type="AudioStream" uid="uid://dm4sfaq71qy0g" path="res://sounds/yay.wav" id="4_oa8ao"]
+[ext_resource type="AudioStream" uid="uid://be1rsnx1jr8av" path="res://sounds/sale.wav" id="4_xw6i5"]
+[ext_resource type="AudioStream" uid="uid://b3ee8h8jas3d8" path="res://sounds/boo.wav" id="5_yuqmy"]
+[ext_resource type="AudioStream" uid="uid://clf07a7mlb2dr" path="res://sounds/fail.wav" id="6_dj8sp"]
 
 [node name="Cashier" unique_id=759986310 instance=ExtResource("1_qxk7m")]
 visible = true
 script = ExtResource("2_xw6i5")
+cash_sound = ExtResource("4_xw6i5")
+yay_sound = ExtResource("4_oa8ao")
+boo_sound = ExtResource("5_yuqmy")
+fail_sound = ExtResource("6_dj8sp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=817496378]
 texture = ExtResource("2_yvugg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3" unique_id=2053475790]
+stream = ExtResource("4_xw6i5")

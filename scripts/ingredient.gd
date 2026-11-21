@@ -5,6 +5,7 @@ signal done_cookin(ingredient: Ingredient)
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var cook_methods: Array[CookMethod]
 @export var id: String
@@ -48,4 +49,8 @@ func finish_cookin():
 	if self is Bread and instance is Bread:
 		(self as Bread).copy_ingredients(instance as Bread)
 	queue_free.call_deferred()
+	# TODO: hacky, avoids removing the ingredient that is trying to play the sound
+	# if play on cook instead, what to do about burnt ingredients different sound and start cooking sound
+	instance.audio.stream = method.finish_sound
+	instance.audio.play()
 	done_cookin.emit(instance)

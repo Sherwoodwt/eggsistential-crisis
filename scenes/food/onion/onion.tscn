@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_030td"]
 [ext_resource type="Texture2D" uid="uid://cx82yp6wc3wit" path="res://sprites/full_onion_container.png" id="3_030td"]
 [ext_resource type="PackedScene" uid="uid://ciixqctc18p0k" path="res://scenes/food/onion/cooked_onion.tscn" id="3_bmrjr"]
+[ext_resource type="AudioStream" uid="uid://d35b2gfwd5piu" path="res://sounds/cook1.wav" id="4_7m18n"]
 [ext_resource type="Texture2D" uid="uid://8nbaq2gtd0gv" path="res://sprites/half_onion_container.png" id="4_bmrjr"]
 [ext_resource type="Texture2D" uid="uid://gs4vyfdv6hfl" path="res://sprites/last_onion_container.png" id="5_7m18n"]
 
@@ -13,6 +14,7 @@ script = ExtResource("2_030td")
 cooked_ingredient = ExtResource("3_bmrjr")
 cooker = "stove"
 cook_time = 10.0
+finish_sound = ExtResource("4_7m18n")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [node name="Onion" unique_id=579245693 instance=ExtResource("1_l8qgm")]

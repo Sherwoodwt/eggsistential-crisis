@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvyh3g522ss05" path="res://sprites/tomato_container_full.png" id="3_2v7d2"]
 [ext_resource type="PackedScene" uid="uid://dwu1cipul15o7" path="res://scenes/food/tomato/cooked_tomato.tscn" id="3_5ngpi"]
 [ext_resource type="Texture2D" uid="uid://ki8ir3c532jc" path="res://sprites/tomato_slice.png" id="4_1bi57"]
+[ext_resource type="AudioStream" uid="uid://d35b2gfwd5piu" path="res://sounds/cook1.wav" id="4_5ngpi"]
 [ext_resource type="Texture2D" uid="uid://dxy8w7j4gl4k1" path="res://sprites/tomato_container_half.png" id="4_ep801"]
 [ext_resource type="Texture2D" uid="uid://pk5vkae8fdht" path="res://sprites/tomato_container_last.png" id="5_v6e23"]
 
@@ -13,6 +14,7 @@ script = ExtResource("2_ip4ux")
 cooked_ingredient = ExtResource("3_5ngpi")
 cooker = "stove"
 cook_time = 4.0
+finish_sound = ExtResource("4_5ngpi")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yv1l"]

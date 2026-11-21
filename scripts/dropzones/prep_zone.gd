@@ -9,6 +9,7 @@ func can_place(ing: Ingredient) -> bool:
 	return ingredient is Bread and ing is not Bread
 
 func set_ingredient(ingredient: Ingredient):
+	audio.play()
 	if self.ingredient is Bread:
 		(self.ingredient as Bread).add_ingredient(ingredient)
 	else:

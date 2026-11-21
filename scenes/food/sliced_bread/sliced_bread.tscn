@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cl5a6lflsh3rl" path="res://sprites/sliced_bread.png" id="2_a34ib"]
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_o421x"]
 [ext_resource type="PackedScene" uid="uid://dyxkf5exs2bij" path="res://scenes/food/sliced_bread/sliced_toast.tscn" id="3_7ix2g"]
+[ext_resource type="AudioStream" uid="uid://d35b2gfwd5piu" path="res://sounds/cook1.wav" id="5_npva1"]
 [ext_resource type="Texture2D" uid="uid://dt8ugc7y4knpd" path="res://sprites/sliced_bread_icon.png" id="5_o421x"]
 [ext_resource type="Texture2D" uid="uid://bfvk7f6c62ysd" path="res://sprites/bread_container_full.png" id="6_otahj"]
 [ext_resource type="Texture2D" uid="uid://begtpdh5ljpur" path="res://sprites/bread_container_half.png" id="7_kknea"]
@@ -15,6 +16,7 @@ script = ExtResource("2_o421x")
 cooked_ingredient = ExtResource("3_7ix2g")
 cooker = "stove"
 cook_time = 12.0
+finish_sound = ExtResource("5_npva1")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5umn"]

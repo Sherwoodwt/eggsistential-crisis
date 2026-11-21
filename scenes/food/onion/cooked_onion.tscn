@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_b8lx6"]
 [ext_resource type="Texture2D" uid="uid://f11x6o4x54wx" path="res://sprites/cooked_onion_slice.png" id="2_impdh"]
 [ext_resource type="PackedScene" uid="uid://1sysgxxq2va8" path="res://scenes/food/onion/crispy_onion.tscn" id="3_2sqhn"]
+[ext_resource type="AudioStream" uid="uid://d35b2gfwd5piu" path="res://sounds/cook1.wav" id="4_2sqhn"]
 
 [sub_resource type="Resource" id="Resource_8ool0"]
 script = ExtResource("2_b8lx6")
 cooked_ingredient = ExtResource("3_2sqhn")
 cooker = "stove"
 cook_time = 10.0
+finish_sound = ExtResource("4_2sqhn")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [node name="CookedOnion" unique_id=579245693 instance=ExtResource("1_bjxmt")]

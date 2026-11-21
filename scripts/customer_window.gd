@@ -23,14 +23,20 @@ func _ready():
 	SignalBus.new_customer.connect(_add_to_line)
 
 func do_action():
-	if line.size() and ticket_generator.has_room():
+	if line.size() and ticket_generator.has_room() and not timer.paused:
+		timer.paused = true
+		add_child(GuiLogger.print("Gimme a sandwich"))
 		highlight.hide()
 		ticket_generator.take_order(line[0])
 		line.remove_at(0)
+		await get_tree().create_timer(2).timeout
+		
+		timer.paused = false
 		if line.size():
 			timer.start(timer.time_left + LINE_MOVED_AMOUNT)
 		else:
 			timer.stop()
+		
 		_refresh()
 
 func _process(delta: float) -> void:

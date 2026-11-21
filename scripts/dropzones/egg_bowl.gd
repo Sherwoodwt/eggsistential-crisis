@@ -3,6 +3,9 @@ extends Dropzone
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var progress: TextureProgressBar = $TextureProgressBar
 
+@export var crack_sound: AudioStream
+@export var stir_sound: AudioStream
+@export var done_sound: AudioStream
 @export var empty_bowl_sprite: Texture2D
 @export var bowl_stir_sprites: Array[Texture2D]
 @export var full_bowl_sprite: Texture2D
@@ -29,6 +32,10 @@ func _add_egg():
 		ingredient.done_cookin.disconnect(connection["callable"])
 	ingredient.done_cookin.connect(set_ingredient)
 
+func set_ingredient(ingredient: Ingredient):
+	audio.stream = crack_sound if ingredient.id == "egg" else null
+	super(ingredient)
+
 func _pour():
 	sprite.texture = empty_bowl_sprite
 	_done_stirring = false
@@ -47,6 +54,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		super(viewport, event, shape_idx)
 	else:
 		if Input.is_action_just_pressed("click") and ingredient:
+			audio.stream = stir_sound
 			_holding_spoon = true
 			_start_point = get_global_mouse_position().x
 			_last_point = 0
@@ -58,14 +66,18 @@ func _input(event: InputEvent) -> void:
 	super(event)
 	if _holding_spoon and Input.is_action_just_released("click"):
 		_holding_spoon = false
-	if _holding_spoon and event is InputEventMouseMotion:
+	if _holding_spoon and event is InputEventMouseMotion and not _done_stirring: # stir
 		var mouse_diff := (event as InputEventMouseMotion).relative.x
+		if mouse_diff and not audio.playing:
+			audio.play()
 		var clamped_position := clampf(_last_point + mouse_diff, -STIRRING_WIDTH, STIRRING_WIDTH)
 		progress.value += minf(abs(clamped_position - _last_point), MAX_VALUE_CHANGE)
 		_last_point = clamped_position
 		_current_stir_sprite = clamp(int(bowl_stir_sprites.size() * (clamped_position + STIRRING_WIDTH) / (STIRRING_WIDTH * 2)), 0, bowl_stir_sprites.size() - 1)
 		sprite.texture = bowl_stir_sprites[_current_stir_sprite]
 		if progress.value == progress.max_value:
+			audio.stream = done_sound
+			audio.play()
 			ingredient.cook(self)
 			ingredient.done_cookin.connect(func(i): i.visible = false)
 			sprite.texture = full_bowl_sprite

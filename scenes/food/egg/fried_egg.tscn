@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://tiglmwd6t4kk" path="res://scripts/cook_method.gd" id="2_gbq58"]
 [ext_resource type="Texture2D" uid="uid://b40q8cqf8dymj" path="res://sprites/fried_egg.png" id="2_hisr7"]
 [ext_resource type="PackedScene" uid="uid://b2b8fa2wtdgmh" path="res://scenes/food/egg/burnt_egg.tscn" id="3_8hkag"]
+[ext_resource type="AudioStream" uid="uid://6vsw6do7qnmd" path="res://sounds/burn.wav" id="4_tc3t7"]
 
 [sub_resource type="Resource" id="Resource_6phm8"]
 script = ExtResource("2_gbq58")
 cooked_ingredient = ExtResource("3_8hkag")
 cooker = "stove"
 cook_time = 5.0
+finish_sound = ExtResource("4_tc3t7")
 metadata/_custom_type_script = "uid://tiglmwd6t4kk"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5yv1l"]

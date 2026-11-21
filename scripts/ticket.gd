@@ -1,9 +1,10 @@
 class_name Ticket
 extends Control
 
-const DEFAULT_SANDWICH_PRICE = 5
+const DEFAULT_SANDWICH_PRICE = 5.0
 
 @onready var highlight_shader: Shader = preload("res://shaders/ready.gdshader")
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var items: Node = $MarginContainer/VBoxContainer
 @onready var button: Button = $Button
 @onready var progress: TextureProgressBar = $TextureProgressBar
@@ -29,6 +30,7 @@ func _ready():
 	highlight = ShaderMaterial.new()
 	highlight.shader = highlight_shader
 	if for_order:
+		audio.play()
 		picture.texture = customer.texture
 		timer.wait_time = time
 		timer.timeout.connect(_fail_ticket)
@@ -106,7 +108,7 @@ func check_ready(sandwiches: Array[Bread]):
 		material = null
 
 # TODO: Calculate based on ingredient cost
-func get_price() -> int:
+func get_price() -> float:
 	return DEFAULT_SANDWICH_PRICE
 
 func _fail_ticket():

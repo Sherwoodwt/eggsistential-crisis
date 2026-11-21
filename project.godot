@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*uid://db06svg5ca3gg"
 GuiLogger="*uid://36riuiydq5il"
+Globals="*uid://c2pyi8uo2xx3y"
 
 [input]
 

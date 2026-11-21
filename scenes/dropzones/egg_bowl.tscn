@@ -3,8 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://s426u62r6glt" path="res://scenes/dropzones/dropzone.tscn" id="1_o4jko"]
 [ext_resource type="Script" uid="uid://btl85oj11rme7" path="res://scripts/dropzones/egg_bowl.gd" id="2_1bkv6"]
 [ext_resource type="Texture2D" uid="uid://dlxvwkl2e47bn" path="res://sprites/bowl_with_fork.png" id="2_cr7oc"]
+[ext_resource type="AudioStream" uid="uid://8gmxokq75evb" path="res://sounds/crack.wav" id="3_15y3j"]
 [ext_resource type="Texture2D" uid="uid://bcnu8fudqabjf" path="res://sprites/bowl_stir1.png" id="4_iahvl"]
+[ext_resource type="AudioStream" uid="uid://jrwkpgow0ars" path="res://sounds/stir.wav" id="4_n7fkb"]
 [ext_resource type="Texture2D" uid="uid://bagr1j88cwqpg" path="res://sprites/bowl_with_fork_and_egg.png" id="5_kogu8"]
+[ext_resource type="AudioStream" uid="uid://fvjll7ql2j88" path="res://sounds/place.wav" id="5_n7fkb"]
 [ext_resource type="Texture2D" uid="uid://d2e4liaq4hoqx" path="res://sprites/bowl_stir2.png" id="5_qpqbc"]
 [ext_resource type="Texture2D" uid="uid://hlhe5mq4jdh6" path="res://sprites/bowl_stir3.png" id="6_15y3j"]
 [ext_resource type="Texture2D" uid="uid://cfnmmar0qyfon" path="res://sprites/empty_health.png" id="6_kogu8"]
@@ -17,6 +20,9 @@ load_path = "res://.godot/imported/fried_egg.png-3ab098abf8f03f5de551dcdaa8ba54f
 
 [node name="EggBowl" unique_id=1394619472 instance=ExtResource("1_o4jko")]
 script = ExtResource("2_1bkv6")
+crack_sound = ExtResource("3_15y3j")
+stir_sound = ExtResource("4_n7fkb")
+done_sound = ExtResource("5_n7fkb")
 empty_bowl_sprite = ExtResource("2_cr7oc")
 bowl_stir_sprites = Array[Texture2D]([ExtResource("8_anw2p"), ExtResource("7_n7fkb"), ExtResource("6_15y3j"), ExtResource("5_qpqbc"), ExtResource("4_iahvl")])
 full_bowl_sprite = ExtResource("5_kogu8")

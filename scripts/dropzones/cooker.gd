@@ -4,6 +4,9 @@ extends Dropzone
 @onready var smoke: GPUParticles2D = $GPUParticles2D
 @onready var progress: TextureProgressBar = $TextureProgressBar
 
+@export var cook_sound: AudioStream
+@export var stack_sound: AudioStream
+
 func can_place(ing: Ingredient) -> bool:
 	if ing.is_edible and self.ingredient is Bread:
 		return true
@@ -43,7 +46,12 @@ func done_cookin(result: Ingredient):
 func set_ingredient(ing: Ingredient):
 	if ingredient is Bread and ing is not Bread:
 		(ingredient as Bread).add_ingredient(ing)
+		audio.stream = stack_sound
+		audio.play()
 	else:
+		if not ingredient: # only do it when placed, not when cooked into a new thing
+			audio.stream = cook_sound
+			audio.play()
 		ingredient = ing
 		for connection in ingredient.done_cookin.get_connections():
 			ing.done_cookin.disconnect(connection["callable"])

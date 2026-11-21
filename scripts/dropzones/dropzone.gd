@@ -8,6 +8,7 @@ signal moved # item moved away from this zone
 
 @onready var highlight: AnimatedSprite2D = $Highlight
 @onready var hover_animation: Sprite2D = $HoverAnimation
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var id: String
 
@@ -44,6 +45,7 @@ func can_place(ingredient: Ingredient) -> bool:
 
 func set_ingredient(ingredient: Ingredient):
 	self.ingredient = ingredient
+	audio.play()
 
 # Determines if the point overlaps with a dropzone, used for placing
 func point_overlap(point: Vector2) -> Dropzone:
