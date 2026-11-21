@@ -16,7 +16,7 @@ func _ready():
 func _refresh(ticket: Ticket):
 	sale_count += 1
 	ui_served.text = "SERVED: %d" % sale_count
-	ui_money.text = "$%.2f" % ticket.get_price()
+	ui_money.text = "$%.2f" % Globals.money
 
 func _take_damage():
 	audio.play()

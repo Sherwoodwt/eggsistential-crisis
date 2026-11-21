@@ -215,7 +215,3 @@ autostart = true
 [node name="Cashier" parent="." unique_id=1893743003 node_paths=PackedStringArray("counter") instance=ExtResource("42_4khfn")]
 position = Vector2(358, -84)
 counter = NodePath("../Counter")
-cash_sound = null
-yay_sound = null
-boo_sound = null
-fail_sound = null
